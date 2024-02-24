@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthPie</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <!-- home-page -->
+
+        <div id="home_page" class="home-page w-full h-screen bg-zinc-500">
+            <div class="nav-bar">
+                <div class="logo">
+                    <img width="50px" height="50px" src="./images/v987-18a.jpg" alt="">
+                    <h2>Health Pie</h2>
+                </div>
+                <div class="nav-links">
+                    <ol>
+                        <a href="#home_page">Home</a><a href="#signup">Sign Up</a><a href="#login">Login</a>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h1>Switch To HEALTHY </h1>
+                    <img width="600px" height="400px" src="./images/hero-img.jpg" alt="">
+                    <button>LOGIN</button>
+                    <button>SIGNUP</button>
+                </div>
+                <div class="hero-img"></div>
+            </div>
+        </div>
+        <!-- signup-page -->
+        <div id="signup" class="sign-up-form">
+            <label for="name">Name
+                <input type="text">
+            </label>
+            <label for="number">Contact No.
+                <input type="number">
+            </label>
+            <label for="email">Email
+                <input type="email">
+            </label>
+            <label for="password">Password
+                <input type="password">
+            </label>
+            <label for="dropdown">
+                <select name="role" id="role" >
+                    <option value="role">Patient</option>
+                    <option value="role">Doctor</option>
+                </select>
+            </label>
+            <label for="document">
+                <input type="file">
+            </label>
+            <button>Sign In</button>
+        </div>
+        <!-- login-page -->
+        <div id="login" class="log-in-form">
+            <label for="email">Email
+                <input type="email">
+            </label>
+            <label for="password">Password
+                <input type="password">
+            </label>
+            <button>Login In</button>
+        </div>
+
+        <!-- patient-dashboard -->
+
+        <div class="patient-dashboard">
+            <h1>Patient dashbpard</h1>
+
+            <div class="top-section">
+                <div class="text-show">
+                    <h2>Hi User !!</h2>
+                    <h3>Lorem ipsum dolor sit amet.</h3>
+                </div>
+
+
+                <div>
+                    <!-- hamburger menu div -->
+                </div>
+
+                <div class="side-nav-bar">
+                    <a href="">Profile</a>
+                    <a href="">Meals</a>
+                    <a href="">Exercises</a>
+                    <a href="">Appointments</a>
+                    <a href="">Goals</a>
+                    <a href="">Help and Support</a>
+                    <a href="">Logout</a>
+                </div>
+            </div>
+
+            <div class="card-section">
+                <div class="img-container">
+                    <a href="#">
+                        <img src="https://picsum.photos/400/400" alt="img1">
+                    </a>
+
+                </div>
+                <div class="img-container">
+                    <a href="#">
+                        <img src="https://picsum.photos/400/400" alt="img2">
+                    </a>
+
+                </div>
+                <div class="img-container">
+                    <a href="#">
+                        <img src="https://picsum.photos/400/400" alt="img2">
+                    </a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="doctor-dashboard">
+            <h1>Doctor dashbpard</h1>
+            <div class="top-section">
+                <div class="text-show">
+                    <h2>Hi User !!</h2>
+                    <h3>Lorem ipsum dolor sit amet.</h3>
+                </div>
+
+
+                <div>
+                    <!-- hamburger menu div -->
+                </div>
+
+                <div class="side-nav-bar">
+                    <a href="">Profile</a>
+                    <a href="">Bookings</a>
+
+                    <a href="">Help and Support</a>
+                    <a href="">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
