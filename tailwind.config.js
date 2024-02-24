@@ -1,8 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    './views/index.html',
+    './views/**/*.{html,js}',
+  
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+       "font-family": "Kaushan Script", cursive,
+      }
+    },
   },
   plugins: [],
 }
