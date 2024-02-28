@@ -1,18 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './views/index.html',
-    './views/**/*.{html,js}',
-  
+    'views/index.html',
+    'views/signup.html',
+    'views/login.html'
+
   ],
   theme: {
-    extend: {
-      fontFamily: {
-       "font-family": "Kaushan Script", cursive,
-      }
-    },
+    colors: {
+      
+    }
+    // extend: {},
   },
   plugins: [],
 }
-  
 
