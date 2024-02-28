@@ -1,22 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/public/style.css">
 
 </head>
+
 <body>
-    <div id="login" class="log-in-form">
-        <label for="email">Email
-            <input type="email">
-        </label>
-        <label for="password">Password
-            <input type="password">
-        </label>
-        <button>Login In</button>
+    <div id="login" class="log-in-form justify-center items-center flex flex-col h-screen">
+        <div class="login-form-container flex flex-col gap-6 items-center justify-center">
+            <h1 class="text-3xl font-semibold max-sm:text-6xl">Login Form</h1>
+
+
+
+            <form action="" >
+                <div class="input-label flex flex-col ">
+                    <label class=" text-xl text-[#548C73]  max-sm:text-2xl" for="name">Email</label>
+                    <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl sm:w-full "
+                        type="email">
+                </div>
+
+                <div class="input-label flex flex-col">
+                    <label class="text-[#548C73]  text-xl max-sm:text-2xl" for="email">Password</label>
+                    <input required class="border-2 w-[30vw] h-10 border-[#D32243] outline-none rounded-xl sm:w-full"
+                        type="password">
+                </div>
+
+
+
+        </div>
+       
+            <button
+                class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] hover:scale-105 transition-2s ">LOGIN</button>
+       
+        </form>
+
     </div>
 </body>
+
 </html>
