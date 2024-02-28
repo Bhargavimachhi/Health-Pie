@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body class="k">
+    <img src="../assets/images/doc.jpg" class="relative w-screen h-screen">
+    <span class="material-symbols-outlined absolute top-12 p-4 bg-black w-[5rem] rounded-2xl text-white cursor-pointer" onclick="add()">
+        arrow_back <p class="text-xs ">Back</p>
+        </span>
+    <div class="text-black flex flex-col gap-6  justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1 class="text-[30px] font-extrabold">Hello Doctor!</h1>
+        <p class="font-medium text-[25px]"> Add your documents here</p>
+        <input type="file" name="doc" id="doc" class="font-bold pl-3 ml-4" >
+        <button class="bg-black text-white border-white boredr-2 p-4 rounded-full w-2/4 text-[20px]" onclick="add()">Add</button>
+    </div>
+    <script>
+
+        function add(){
+
+            window. location. href='./doctorDash.html'
+        }
+    </script>
+</body>
+</html>

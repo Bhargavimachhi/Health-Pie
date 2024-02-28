@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../style/doctordash.css" rel="stylesheet">
+ <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
+</head>
+<body class="bg-slate-100">
+    <div class="h-screen">
+    <span class="material-symbols-outlined  ">
+        menu
+        </span>
+    <div class="grid grid-cols-3  h-screen gap-3">
+  <div class="container w-full max-w-64 gap-0 font-bold  grid grid-cols-2 justify-center  bg-blue-300 h-auto  ">
+   
+   
+    <div class="icon flex ml-16 flex-col gap-8 text-white justify-center text-center sm:hidden">
+        <span class="material-symbols-outlined ">
+            dashboard
+            </span>
+            <span class="material-symbols-outlined">
+                event_available
+                </span>
+                <span class="material-symbols-outlined">
+                    description
+                    </span>
+                    
+                    <span class="material-symbols-outlined">
+                        logout
+                        </span>
+    </div>
+    <ul class=" flex  flex-col gap-9 text-sm text-white justify-center">
+        <li class=" ">
+           
+            <a  href="#">Dashboard</a></li>
+        <li class="   ">
+           
+            <a href="./appointments.html">Apointment</a></li>
+        </li>
+        <li class="  ">
+            <a href="./document.html">Documents</a></li>
+        </li>
+        <li class=" ">
+            <a href="#">Logout</a></li>
+        </li>
+    </ul>
+
+  </div>
+
+  
+    <div class=" mt-[80px] grid-rows-2  grid  max-w-6xl relative right-20">
+
+
+        <div class="name container  space-y-6 ">
+            <div class="  rounded-lg p-2 shadow-xs relative" >
+                <img class="object-cover h-48 w-[70rem] blur-xs" src="../assets/images/stethoscop.jpg">
+               <div class="absolute bottom-1 text-white p-4"><h1 class="text-bold">Hello Dr. Ridhima belly</h1>
+                <p>Here are your important task and reports.</p>
+                <p>Please check the next appointment.</p></div> 
+            </div>
+            <div class="container w-full h-full shadow-md " id="chart">
+                
+            </div>
+            <div class="cards relative top-[19rem] flex justify-center h-auto">
+                
+                
+               <!--here we will show detail some patients data-->
+             </div>
+        
+              
+              
+        </div>
+   
+    </div>
+    <div class=" mx-11 bg-blue-300 mt-[80px] p-[34px]">
+
+        <div class="flex flex-col justify-center items-center bg-white drop-shadow-md rounded-lg  w-full  shadow-b-">
+            <img class=" mt-2 p-1 w-28 h-36 rounded-full bg-blue-300 border-4 border-slate-50 object-cover  "
+                src="../assets/images/doctor1.png" />
+            <div class="flex flex-col pl-[2rem] py-[1.5rem]">
+                <h4 class="font-bold text-lg text-pink-600">Dr Ridhima Belly</h4>
+                <p class="mt-1 flex-1 font-light text-sm text-slate-500">CEO & Co-Founder of XYZ</p>
+    
+               
+    
+            </div>
+            
+    </div>
+    <div class=" flex flex-col gap-3 pt-5 text-white items-center pb-3">
+       <p><b>Experience</b> 19 years+</p>
+       <p><b>Langauge</b> English</p>
+       <p><b>Types of</b>  Surgeon</p>
+       <p><b>Speciality</b>
+        <button class="border-blue-400 border-2 rounded-lg p-2 bg-white text-blue-300 font-semibold
+        ">Nutrition</button>   
+        
+    </p>
+
+    </div>
+    <div class="items-center flex flex-col p-9 text-white gap-3 border-t-2 border-b-2">
+      <h1 class="font-extrabold text-[70px]">22</h1>
+   <p class="text-[20px]">Total patients</p>
+    </div>
+    
+    </div>
+  
+</div>
+</div>
+<script>
+// chart code is shown here
+
+
+anychart.onDocumentReady(function() {
+    var data = [
+  ["2003", 1, 0, 0],
+  ["2004", 4, 0, 0],
+  ["2005", 6, 0, 0],
+  ["2006", 9, 1, 0],
+  ["2007", 12, 2, 0],
+  ["2008", 13, 5, 1],
+  ["2009", 15, 6, 1],
+  ["2010", 16, 9, 1],
+  ["2011", 16, 10, 4],
+  ["2012", 17, 11, 5],
+  ["2013", 17, 13, 6],
+  ["2014", 17, 14, 7],
+  ["2015", 17, 14, 10],
+  ["2016", 17, 14, 12],
+  ["2017", 19, 16, 12],
+  ["2018", 20, 17, 14],
+  ["2019", 20, 19, 16],
+  ["2020", 20, 20, 17],
+  ["2021", 20, 20, 20],
+  ["2022", 20, 22, 20]
+];
+    // create a data set
+var dataSet = anychart.data.set(data);
+
+// map the data for all series
+var firstSeriesData = dataSet.mapAs({x: 0, value: 1});
+var thirdSeriesData = dataSet.mapAs({x: 0, value: 2});
+
+// create a line chart
+var chart = anychart.line();
+
+// create the series and name them
+var firstSeries = chart.line(firstSeriesData);
+firstSeries.name("Patients");
+
+var thirdSeries = chart.line(thirdSeriesData);
+thirdSeries.name("Consultations");
+chart.legend().enabled(true);
+
+firstSeries.normal().stroke("#43a7dc", 2.5);
+
+thirdSeries.normal().stroke(" #7b60a2", 2.5);
+  
+// add a title
+chart.title("Activity");
+firstSeries.hovered().markers().type("circle").size(4);
+
+thirdSeries.hovered().markers().type("circle").size(4);
+
+chart.crosshair().enabled(true).yStroke(null).yLabel(false);
+chart.tooltip().positionMode("point");
+chart.tooltip().position("right").anchor("left-center").offsetX(5).offsetY(5);
+// specify where to display the chart
+chart.container("chart");
+chart
+  .title()
+  .enabled(true)
+  .useHtml(true)
+  .text(
+    '<span style="color: #006331; font-size:20px;">Activity</span>' 
+  );
+// draw the resulting chart
+chart.draw();
+  });
+
+</script>
+</body>
+</html>
