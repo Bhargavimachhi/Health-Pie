@@ -1,6 +1,10 @@
-const mongoose=require("mongoose");
+
+import mongoose from "mongoose"
 
 let userSchema=new mongoose.Schema({
+    userId:{
+     type: String
+    },
     username :{
         type : String,
         required : true,
@@ -18,6 +22,7 @@ let userSchema=new mongoose.Schema({
         type : String,
         required : true,
     },
+    
     firstName : String,
     lastName : String,
     gender : {
