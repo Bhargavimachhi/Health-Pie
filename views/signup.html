@@ -4,56 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="/public/style.css">
+
 
 </head>
 
 <body>
-    <div id="signup" class="sign-up-form flex justify-center items-center">
-        <div class="form flex flex-col justify-center item">
+    <div id="signup" class="sign-up-form min-h-screen justify-center flex items-center">
+        
+        <form action="">
 
-
+    <div class="form-cont flex items-center justify-center flex-col gap-6">
+        <h1 class="text-3xl text-[#393D3F] font-semibold max-sm:text-6xl">Sign Up Form</h1>
             <div class="input-label flex flex-col">
-                <label class="text-green-400" for="name">Name</label>
-                <input class="border-2 border-[#D32243] rounded-xl" type="text">
+                <label class="text-[#548C73]= text-xl" for="name">Name</label>
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl  max-sm:w-full " type="text">
             </div>
 
             <div class="input-label flex flex-col">
-                <label class="text-green-400" for="name">Contact No.</label>
-                <input class="border-2 border-[#D32243] rounded-xl" type="string">
+                <label class="text-[#548C73] text-xl" for="name">Contact No.</label>
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" type="string">
             </div>
 
             <div class="input-label flex flex-col">
-                <label class="text-green-400" for="name">Email</label>
-                <input class="border-2 border-[#D32243] rounded-xl" type="email">
+                <label class="text-[#548C73] text-xl" for="name">Email</label>
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" type="email">
             </div>
 
             <div class="input-label flex flex-col">
-                <label class="text-green-400" for="email">Password</label>
-                <input class="border-2 border-[#D32243] rounded-xl" type="password">
+                <label class="text-[#548C73] text-xl" for="email">Password</label>
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" type="password">
             </div>
 
             <div class="input-label flex flex-col">
-                <select name="role" id="role">
-                    <option value="role">Patient</option>
-                    <option value="role">Doctor</option>
+                <label class="text-[#548C73] text-xl" for="email">Choose Your Role</label>  
+                
+                <select onchange="Upload()" required class="text-xl border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full"   name="role" id="role">
+                    <option value="Patient">Patient</option>
+                    <option value="Doctor">Doctor</option>
                 </select>
+           </div>
+
+            <div id="docUpload" class="input-label flex-col hidden ">
+                <label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label>
+
+                    <input required class="text-black text-xl bg-transparent" type="file">
             </div>
 
-
-
-
-
-
-
-            <label for="document">
-                <input type="file">
-            </label>
-            <button>Sign In</button>
+            <button
+                class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] focus:outline-none focus:shadow-outline hover:scale-105 transition-2s ">
+                SIGNUP</button>
         </div>
+    </form>
+
 
     </div>
+
+    <script>
+        function Upload() {
+          var roleSelect = document.getElementById('role');
+          var documentUpload = document.getElementById('docUpload');
+      
+          if (roleSelect.value === 'Doctor') {
+            documentUpload.classList.remove('hidden');
+          } else {
+            documentUpload.classList.add('hidden');
+          }
+        }
+      </script>
 
 </body>
 

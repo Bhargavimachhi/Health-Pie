@@ -1,15 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./views/*.html"],
+  content: [
+    './views/index.html',
+    './views/**/*.{html,js}',
+  
+  ],
   theme: {
     extend: {
-      backgroundImage: {
-      'hero': "url('../assets/images/stethoscop.jpg')",
-      "doc":"url('../assets/images/doc.jpg)"
+      fontFamily: {
+       "font-family": "Kaushan Script", cursive,
+      }
     },
-    blur: {
-      xs: '2px',
-    }},
   },
   plugins: [],
 }
