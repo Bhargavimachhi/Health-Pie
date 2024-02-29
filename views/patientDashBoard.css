@@ -1,0 +1,59 @@
+.sidebar{
+    display: block;
+   }
+   .sidebar.open {
+       visibility: visible;
+       /* other styles */
+   }
+   .content {
+       margin-left: 0;
+       transition: margin-left 0.5s;
+     }
+   
+   /* My meal ToDo List */
+   ul li{
+       list-style: none;
+       padding: 12px 8px 12px 50px;
+       position: relative;
+       font-size: 16px;
+   
+   
+   }
+   ul li::before{
+       content: '';
+       margin: 2px;
+       height: 28px;
+       width: 28px;
+       border-radius: 50%;
+       background-image: url(Images/unchecked.png);
+       background-position: center;
+       position: absolute;
+       background-size: cover;
+       top: 12px;
+       left: 8px;
+   
+   }
+   ul li.checked{
+       color: green;
+       font-size: 16px;
+       /* background: rebeccapurple; */
+       text-decoration: line-through;
+   
+   }
+   ul li.checked::before{
+       background-image: url(Images/checked.png);
+   
+   }
+   ul li span{
+       position: absolute;
+       right: 0;
+       top: 5px;
+       height: 35px;
+       width: 40px;
+      font-size: 20px;
+       text-align: center;
+   }
+   ul li span:hover{
+       background: grey;
+       border-radius: 50%;
+   }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthPie</title>
     <link rel="stylesheet" href="/public/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
   
 </head>
@@ -28,9 +29,9 @@
                 </div>
                 <div class="nav-links ml-10 max-w-full">
                     <ol class="text-xl flex  gap-5 pt-5 font-semibold text-[#D32243] list-none pr-[4vw]  ">
-                        <li class="sm:hidden"><a  href="#home_page">Home</a></li>
-                        <li class="sm:hidden"><a href="signup.html">Sign Up</a></li>
-                        <li class="sm:hidden"><a href="login.html">Login</a></li>
+                        <li class="sm:hidden"><a  href="/">Home</a></li>
+                        <li class="sm:hidden"><a href="/signup">Sign Up</a></li>
+                        <li class="sm:hidden"><a href="/login">Login</a></li>
 
 
                     </ol>
@@ -43,15 +44,13 @@
                     </p>
 
                     <div class="btn-class items-center flex justify-center sm:flex-row  sm:items-start ">
-                        <button
-                            onclick="openPage('login')"
-                            class="w-max px-3 text-xl py-1 border-2 rounded-2xl border-[#D32243] font-semibold text-[#D32243] " >LOGIN</button>
-                        <button 
-onclick="openPage('signup')"
-                            class="w-max border-2 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] ml-20">
-SIGNUP
-                           
-                        </button>
+                        <form action="/login">
+                            <button class="w-max px-3 text-xl py-1 border-2 rounded-2xl border-[#D32243] font-semibold text-[#D32243] " >LOGIN</button>
+                        </form>
+                        <form action="/signup">
+                            <button class="w-max border-2 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] ml-20">SIGNUP</button>
+                        </form>
+                        
                     </div>
                 </div>
                 <div class="hero-img">

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body class="">
+    
+    <div class=" w-full h-14 bg-slate-500 flex justify-between items-center">
+        <div class="flex gap-8 items-center justify-center">
+            <div class="logo text-3xl ">HealthiPi</div>
+            <span style="display: block;" class="material-symbols-outlined  text-3xl cursor-pointer " id="manuicon" onclick="handleClick()" >
+                menu
+                </span>
+        </div>
+       
+        
+        <span class="material-symbols-outlined text-4xl ">
+            account_circle
+            </span>
+
+
+    </div>
+    <div class="flex gap-5">
+
+
+        <div    class=" bg-slate-400  h-screen p-8 sm:grid place-content-center w-52  pt-16" id="navcontainer" >
+            <ul class=" flex flex-col  gap-7 text-2xl">
+            <li>
+                <a href="#">Profile</a>
+            </li>
+            <li>
+                <a href="#">Logout</a>
+            </li>
+        </ul>
+    </div>
+    <div class="relative mx-auto top-20 ">
+        <div  class="card   h-20 w-auto bg-slate-800  items-center flex px-2 rounded-2xl">
+             <h1 class="text-white text-2xl px-44">Registred people</h1>
+        </div>
+        <div class="bg-slate-300 h-auto w-30 flex">
+            
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead>
+                  <tr>
+                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      About 
+                    </th>
+                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Role
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Jane Cooper
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Regional Paradigm Technician
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Admin
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Owner
+                    </td>
+                  </tr>
+                  <!-- More rows... -->
+                </tbody>
+              </table>
+              
+              
+ <!--here we will show data about login user -->
+
+        </div></div>
+    </div>
+    
+    
+    <script>
+      function handleClick(menuicon,navcontainer)
+      {
+         d1 = document.getElementById(menuicon);
+         d2 = document.getElementById(navcontainer);
+         if( d2.style.display == "none" )
+         {
+            d1.style.display = "none";
+            d2.style.display = "block";
+         }
+         else
+         {
+            d1.style.display = "block";
+            d2.style.display = "none";
+         }
+      }
+
+    /*document.getElementById('menuicon').addEventListener('click', function() {
+  document.getElementById('navcontainer').style.width = '250px';
+});
+
+document.addEventListener('click', function(event) {
+  if (event.target.closest('#navcontainer') === '' && event.target.id !== 'menuicon') {
+    document.getElementById('navcontainer').style.width = '0';
+  }
+});*/
+
+      </script>
+      
+      
+    
+</body>
+</html>
