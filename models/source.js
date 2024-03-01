@@ -15,7 +15,6 @@ let userSchema=new mongoose.Schema({
     role :{
         type : String,
         required : true,
-        enum :[["user","doctor","admin"],"Not Valid Role"],
     },
     password :{
         type : String,
@@ -26,11 +25,16 @@ let userSchema=new mongoose.Schema({
     lastName : String,
     gender : {
         type : String,
-        enum :[["male","female","others"],"Not Valid Gender"],
     },
     location : String,
     dob : Date,
+
+    meals : [{
+        id : String,
+        name : String,
+    }]
 });
 
-const User=mongoose.model("User",userSchema);
-module.exports=User;
+// const User=mongoose.model("User",userSchema);
+// module.exports=User;
+export default mongoose.model("User", userSchema);

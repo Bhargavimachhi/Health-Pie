@@ -7,7 +7,22 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="/public/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        import {BASE_URL} from "./utils/config.js";
 
+        function runCode(){
+            data={email,password};
+
+            fetch(`${BASE_URL}/login`,{
+                method:"POST",
+                headers:{ 'Content-Type' : 'application/json'},
+                body:JSON.stringify(data)
+            }).then((res)=>{
+                console.log(res);
+                res.text();
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -36,7 +51,7 @@
         </div>
        
             <button
-                class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] hover:scale-105 transition-2s ">LOGIN</button>
+                class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] hover:scale-105 transition-2s " onclick="runCode()">LOGIN</button>
        
         </form>
 

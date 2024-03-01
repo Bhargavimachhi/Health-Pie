@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+  body{
+    background-color: #f4f4f4;
+  }
+</style>
+<body>
+  <div class="container">
+    <h2>Type something in the input field to search the list for specific items:</h2>  
+        <div style="display: flex; align-items: center;">
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">&nbsp;
+            <div style="display: inline;">
+                <form method="get" action="/mymeals">
+                    <button style="height: 34px; width: 34px;"> <i class="fa fa-filter" style="font-size: 25px;"></i></button>
+                </form>
+            </div>
+        </div>
+    <br>
+    
+    <ul class="list-group" id="myList">
+      <% for(let data of userData){%>
+            <li class="list-group-item">
+              <h2><%= data.title %></h2>
+              <img src="<%= data.image %>"><br><br>
+              <div style="display: flex;">
+                <form method="get" action="/mymeals/<%=data.id%>/view">
+                <button type="submit" class="btn btn-primary">View Details</button>
+                </form> &nbsp; &nbsp;
+                <form action="/mymeals/<%=data.title%>/<%=data.id%>/add" action="get">
+                  <button type="submit" id="add" class="btn btn-primary">Add To Meal <i class="fa fa-plus"></i></button>
+                </form>
+                
+              </div>
+              
+            </li><br>
+      <% } %>
+    </ul>  
+  </div>
+    <script>
+      $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#myList li").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+
+      let btns=document.querySelectorAll("[id='add']");
+
+      for(let btn of btns){
+        btn.addEventListener("click",()=>{
+          let x=btn.innerHTML;
+          if(x === 'Add To Meal<i class="fa fa-plus"></i>'){
+            btn.innerHTML='Meal Added <i class="fa fa-check"></i>';
+          }
+          else{
+            btn.innerHTML='Add To Meal<i class="fa fa-plus"></i>';
+          }
+        })
+      }
+      </script>
+    
+</body>
+</html>

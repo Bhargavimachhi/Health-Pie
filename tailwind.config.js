@@ -5,7 +5,10 @@ module.exports = {
     './views/signup.html',
     './views/login.html',
     './views/*.{html}'
-  
+    './views/*.{html,js}',
+  './views/patientDashBoard.html',
+      './views/doctorDash.html'
+
   ],
   theme: {
     extend: {

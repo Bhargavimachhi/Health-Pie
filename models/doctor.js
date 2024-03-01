@@ -2,16 +2,16 @@ import mongoose from "mongoose";
 
 const doctorSchema= new mongoose.Schema({
 
-    userId: {
+      id: {
         type: String
         
       },
-      userEmail: {
+      email: {
         type: String,
-        
+        required : true,
       },
     
-      fullName: {
+      name: {
         type: String,
         required: true,
       },
@@ -21,7 +21,8 @@ const doctorSchema= new mongoose.Schema({
           required:true
       },
       document:{
-        type:File
+        data: Buffer, 
+        contentType: String
       },
       clinic:{
         type:String,
@@ -35,14 +36,14 @@ const doctorSchema= new mongoose.Schema({
         type:String,
         required:true
       },
-      type:{
-        type:String,
-        required:true
-      },
       speciality:{
         type:String,
         requred:true
-      }
+      },
+      password:{
+        type : String,
+        required : true
+      },
     },
     { timestamps: true }
 

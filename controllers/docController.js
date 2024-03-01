@@ -8,13 +8,21 @@ export const createDoctor=async(req,res)=>{
 
         //create new document using model and the request body
 
-        const newDoctor=new Doctor(req.body);
+        let user=await Doctor.find({email : req.body.email});
 
-        //save the newuser data to the database
+        if(!user){
+            const newDoctor=new Doctor(req.body);
 
-        const data=await newDoctor.save();
-        //respond with success message
-        res.status(201).json({message:"new user created successfully",data})
+            //save the newuser data to the database
+
+            const data=await newDoctor.save();
+            //respond with success message
+            res.status(201).json({message:"new user created successfully",data});
+        }
+        else{
+            res.status(500).json({message:"User Exists"});
+        }
+        
     } catch (err) {
         
         //handle error

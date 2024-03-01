@@ -1,4 +1,4 @@
-import User from "./../models/source.js"
+import User from "../models/source.js"
 
 //create user
 
@@ -7,14 +7,21 @@ export const createUser=async(req,res)=>{
     try {
 
         //create new document using model and the request body
+        let user=await User.find({email : req.body.email});
 
-        const newUser=new User(req.body);
+        if(!user){
+            const newUser=new User(req.body);
 
-        //save the newuser data to the database
+            //save the newuser data to the database
 
-        const data=await newUser.save();
-        //respond with success message
-        res.status(201).json({message:"new user created successfully",data})
+            const data=await newUser.save();
+            //respond with success message
+            res.status(201).json({message:"new user created successfully",data});
+        }
+        else{
+            res.status(500).json({message:"User Exists"});
+        }
+        
     } catch (err) {
         
         //handle error

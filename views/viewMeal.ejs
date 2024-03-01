@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Meal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Type something in the input field to search the list for specific items:</h2>  
+        <div style="display: flex; align-items: center;">
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">&nbsp;
+            <div style="display: inline;">
+                <form method="get" action="/mymeals">
+                    <button style="height: 34px; width: 34px;"> <i class="fa fa-filter" style="font-size: 25px;"></i></button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <ul class="list-group" id="myList">
+            <% for (let data of good) { %>
+                <li class="list-group-item">
+                    <h4>Title : <%= data.title %></h4>
+                    <h4>Amount present : <%= data.amount %></h4>
+                    <h4>Percentage Required Daily : <%= data.percentOfDailyNeeds %></h4><br>
+                </li><br>
+            <% } %>
+        </ul>  
+    </div>
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myList li").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
+</body>
+</html>
