@@ -7,7 +7,22 @@
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="/public/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        import {BASE_URL} from "./utils/config.js";
 
+        function runCode(){
+            data={email,password,username,contact,role};
+
+            fetch(`${BASE_URL}/login`,{
+                method:"POST",
+                headers:{ 'Content-Type' : 'application/json'},
+                body:JSON.stringify(data)
+            }).then((res)=>{
+                console.log(res);
+                res.text();
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -19,7 +34,7 @@
         <h1 class="text-3xl text-[#393D3F] font-semibold max-sm:text-6xl">Sign Up Form</h1>
             <div class="input-label flex flex-col">
                 <label class="text-[#548C73]= text-xl" for="name">Name</label>
-                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl  max-sm:w-full " name="name" type="text">
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl  max-sm:w-full " name="username" type="text">
             </div>
 
             <div class="input-label flex flex-col">

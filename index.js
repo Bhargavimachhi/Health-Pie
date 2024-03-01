@@ -41,3 +41,37 @@ main().then(()=>{
 app.listen(port,()=>{
     console.log("Server Started");
 });
+
+app.get("/public/style.css", function(req, res) {
+    res.sendFile("style.css",{root : "public"});
+});
+
+app.get("/",(req,res)=>{
+    res.sendFile("index.html",{root :  "views"});
+})
+
+app.get("/login",(req,res)=>{
+    res.sendFile("login.html",{root : "views"});
+});
+
+app.get("/signup",(req,res)=>{
+    res.sendFile("signup.html",{root : "views"});
+});
+
+app.get("/mymeals",(req,res)=>{
+    res.render("mymeals.ejs");
+})
+
+app.post("/mymeals",(req,res)=>{
+    let {minProtein,maxProtein,minVitaminA,maxVitaminA,minVitaminC,maxVitaminC,minVitaminE,maxVitaminE,minVitaminB12,maxVitaminB12,minCarbs,
+        maxCarbs,minFat,maxFat,minFiber,maxFiber}=req.body;
+    let data=[{'minProtein':minProtein},{'maxProtein':maxProtein},{'maxProtein':minVitaminA},{'maxVitaminA':maxVitaminA},{'minVitaminC':minVitaminC},
+        {'maxVitaminC':maxVitaminC},{'minVitaminE':minVitaminE},{'maxVitaminE':maxVitaminE},{'minVitaminB12':minVitaminB12},{'maxVitaminB12':maxVitaminB12},
+        {'minCarbs':minCarbs},{'maxCarbs':maxCarbs},{'minFat':minFat},{'maxFat':maxFat},{'minFiber':minFiber},{'maxFiber':maxFiber}];
+
+    let q=`https://api.spoonacular.com/recipes/findByNutrients?`;
+    for(let obj of data){
+        console.log(obj);
+    }
+
+})
