@@ -1,20 +1,35 @@
-const express=require("express");
-const path=require("path");
-const methodOverride=require("method-override");
-const mongoose=require("mongoose");
-const app=express();
+import express from "express";
+import path from "path";
+import methodOverride from "method-override";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 const port=8000;
+const app=express();
 
+import userRoute from "./routes/user.js";
+import doctorRoute from "./routes/doctor.js";
+import loginRoute from "./routes/login.js";
+import signupRoute from "./routes/signup.js";
+import cookieParser from "cookie-parser";
+
+
+dotenv.config();
 app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"/views"));
+// app.set("views",path.join(__dirname,"/views"));
 
-app.use(express.static(path.join(__dirname,"public")));
+// app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended :true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cookieParser());
+
+app.use("/user",userRoute);
+app.use("/doc",doctorRoute);
+app.use("/signup",signupRoute);
+app.use("/login",loginRoute);
 
 async function main(){
-    mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    mongoose.connect("mongodb://127.0.0.1:27017/healthPie");
 }
 
 main().then(()=>{
@@ -25,8 +40,4 @@ main().then(()=>{
 
 app.listen(port,()=>{
     console.log("Server Started");
-});
-
-app.get("/",(req,res)=>{
-    res.sendFile("index.html",{root :"views"});
 });

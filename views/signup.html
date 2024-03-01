@@ -6,39 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="/public/style.css">
-
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body>
     <div id="signup" class="sign-up-form min-h-screen justify-center flex items-center">
         
-        <form action="">
+        <form method="post" action="/signup">
 
     <div class="form-cont flex items-center justify-center flex-col gap-6">
         <h1 class="text-3xl text-[#393D3F] font-semibold max-sm:text-6xl">Sign Up Form</h1>
             <div class="input-label flex flex-col">
                 <label class="text-[#548C73]= text-xl" for="name">Name</label>
-                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl  max-sm:w-full " type="text">
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl  max-sm:w-full " name="name" type="text">
             </div>
 
             <div class="input-label flex flex-col">
-                <label class="text-[#548C73] text-xl" for="name">Contact No.</label>
-                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" type="string">
+                <label class="text-[#548C73] text-xl" for="number">Contact No.</label>
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" name="contact" type="string">
             </div>
 
             <div class="input-label flex flex-col">
-                <label class="text-[#548C73] text-xl" for="name">Email</label>
-                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" type="email">
+                <label class="text-[#548C73] text-xl" for="email">Email</label>
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" name="email" type="email">
             </div>
 
             <div class="input-label flex flex-col">
-                <label class="text-[#548C73] text-xl" for="email">Password</label>
-                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" type="password">
+                <label class="text-[#548C73] text-xl" for="password">Password</label>
+                <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full" name="password" type="password">
             </div>
 
             <div class="input-label flex flex-col">
-                <label class="text-[#548C73] text-xl" for="email">Choose Your Role</label>  
+                <label class="text-[#548C73] text-xl" for="role">Choose Your Role</label>  
                 
                 <select onchange="Upload()" required class="text-xl border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full"   name="role" id="role">
                     <option value="Patient">Patient</option>
@@ -47,12 +47,10 @@
            </div>
 
             <div id="docUpload" class="input-label flex-col hidden ">
-                <label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label>
-
-                    <input required class="text-black text-xl bg-transparent" type="file">
+                <label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label><input class="text-black text-xl bg-transparent" name="identity" type="file">
             </div>
-
-            <button
+            
+            <button type="submit"
                 class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] focus:outline-none focus:shadow-outline hover:scale-105 transition-2s ">
                 SIGNUP</button>
         </div>
@@ -68,11 +66,13 @@
       
           if (roleSelect.value === 'Doctor') {
             documentUpload.classList.remove('hidden');
+            documentUpload.innerHTML=`<label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label><input required class="text-black text-xl bg-transparent" name="identity" type="file">`;
           } else {
             documentUpload.classList.add('hidden');
+            documentUpload.innerHTML=`<label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label><input class="text-black text-xl bg-transparent" name="identity" type="file">`;
           }
         }
-      </script>
+    </script>
 
 </body>
 

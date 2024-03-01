@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="/public/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
@@ -16,17 +17,17 @@
 
 
 
-            <form action="" >
+            <form method="post" action="/login" >
                 <div class="input-label flex flex-col ">
-                    <label class=" text-xl text-[#548C73]  max-sm:text-2xl" for="name">Email</label>
+                    <label class=" text-xl text-[#548C73]  max-sm:text-2xl" for="email">Email</label>
                     <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl sm:w-full "
-                        type="email">
+                        type="email" name="email">
                 </div>
 
                 <div class="input-label flex flex-col">
-                    <label class="text-[#548C73]  text-xl max-sm:text-2xl" for="email">Password</label>
+                    <label class="text-[#548C73]  text-xl max-sm:text-2xl" for="password">Password</label>
                     <input required class="border-2 w-[30vw] h-10 border-[#D32243] outline-none rounded-xl sm:w-full"
-                        type="password">
+                        type="password" name="password">
                 </div>
 
 
