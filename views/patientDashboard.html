@@ -5,220 +5,310 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/src/input.css">
+  <link rel="stylesheet" href="/public/style.css">
   <link rel="stylesheet" href="patientDashBoard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
+
 </head>
 
 <body>
-  <div class="page1 h-screen">
-  <!-- navbar -->
-  <div class="nav  flex justify-between items-center h-[30px] bg-slate-200 p-[30px]">
 
-    <div class="p-2.5 mt-1 flex items-center">
-      <h1 class="font-bold  text-[25px] ml-3">User</h1>
-    </div>
+  <!-- home page  -->
+  <!-- <div id="home-page" class="page1 flex w-full h-screen relative"> -->
 
-    <div class="hamburger">
-      <img src="Images/burger.png" id="hamburger" class="h-[50px]  cursor-pointer" alt="img">
-    </div>
-
-  </div>
-  <div class="flex justify-center items-center absolute">
-
-    <!-- sidebar -->
-    <div
-      class="sidebar bg-white border-gray-900 relative top-0 bottom-0 left-0 h-screen lg:left-0 p-2 w-[250px] overflow-y-auto text-center">
+  <!-- sidebar menu -->
+  <div class="flex relative">
+    <div class="column-1 flex fixed w-1/5">
+      <div
+        class="sidebar  w-full shadow-xl bg-zinc-100 border-r-1 border-gray-200  top-0 bottom-0 left-0 h-screen lg:left-0 p-2  flex flex-col justify-center overflow-y-auto text-center">
 
 
-      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400 ">
-        <i class="fa-solid fa-user"></i>
-        <span class="text-[15px] ml-4 text-gray-800 font-bold">Profile</span>
-      </div>
-
-      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400">
-        <i class="fa-solid fa-burger"></i>
-        <span class="text-[15px] ml-4 font-bold">My Meals</span>
-      </div>
-
-      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400 ">
-        <i class="fa-solid fa-dumbbell"></i>
-        <span class="text-[15px] ml-4  font-bold">Exercises</span>
-      </div>
-
-      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400">
-        <i class="fa-solid fa-calendar-days"></i>
-        <span class="text-[15px] ml-4  font-bold">Calender</span>
-      </div>
-
-      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400 ">
-        <i class="fa-solid fa-calendar-check"></i>
-        <span class="text-[15px] ml-4  font-bold">My Appointments</span>
-      </div>
-
-      <div class="p-2.5  mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400 ">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <span class="text-[15px] ml-4  font-bold">Logout</span>
-      </div>
-    </div>
-
-    <!-- main content -->
-    <div class="relative mt-[-100px]">
-      <div class="content">
-        <h1 class="flex items-center justify-center font-bold text-[60px] ">Hi User!</h1>
-        <h2 class="flex items-center justify-center text-[30px] ">Take a step to healthy life</h2>
-
-        <!-- cards -->
-        <section  
-          class="card cursor-pointer w-fit px-11  mx-auto grid grid-cols-1 lg:grid-cols-3  justify-items-center justify-center gap-y-20 gap-x-16 mt-16 mb-5">
-
-          <!-- card1 -->
-          <div
-            class="card1 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
-            <img src="Images/meal2.jpg" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
-            <div class="px-20 ml-5 py-3 w-72 ">
-              <p
-                class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
-                My Meals
-                <img src="Images/iftar.png" class="h-7 mx-2" alt="">
-              </p>
-            </div>
-          </div>
-
-          <!-- card2 -->
-          <div
-            class="card2 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
-            <img src="Images/Fitness-goal1.png" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
-            <div class="px-2 py-3 ml-5 w-72 ">
-              <p
-                class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
-                My fitness goal
-                <img src="Images/fitness.png" class="h-7 mx-2" alt="">
-              </p>
-            </div>
-          </div>
-
-
-          <!-- card3 -->
-          <div
-            class="card3 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
-            <img src="Images/exercise1.jpg" class="h-[15rem]  w-fix object-cover rounded-t-xl" />
-            <div class="px-2 ml-5 py-3 w-72 ">
-              <p
-                class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
-                Exercise
-                <img src="Images/exrecise.png" class="h-7 mx-2" alt="">
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
-  </div>
-</div>
- 
-  <!-- My Meals -->
-   
-    <div class="relative h-screen"> 
-      <h1 class="text-green-800 text-center text-[30px] font-bold py-4 mt-3">My Meals</h1>
-      <h2 class="text-green-700 text-center text-2xl">Your diet is a bank account. Good food choices are good investments</h2>
-
-      <!-- To-do list -->
-
-       <div class="container flex justify-center items-center my-6 p-5 mx-auto">
-        <div class="todo-app  bg-gray-300 p-7 rounded-lg shadow-md ">
-            <h2 class="text-red-600 text-[20px] font-bold ml-4 flex items-center mb-5">
-                   Add Your Food
-                <img src="Images/food.png" class="w-7 ml-4" alt="">
-            </h2>
-            <div class="add bg-[#edeef0] rounded-[20px] pl-5  flex items-center justify-between ">
-                <input type="text" id="input-box" placeholder="Add your task" class="flex-1 outline-none bg-transparent border-none p-2">
-                <button onclick="addTask()" class="btn  px-9 py-4 cursor-pointer  bg-orange-600 rounded-[20px] text-[16px] text-white max-[404px]:px-7 max-[404px]:py-3">Add</button>
-            </div>
-             <ul id="list-container" class="p-5 mt-2"> </ul>
-     
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
+          <i class=" text-[#D32243] fa-solid fa-user"></i>
+          <a href="#profile"> <span class="text-[15px] ml-4 text-[#393D3F] font-semibold">Profile</span>
+          </a>
         </div>
-       </div>
+
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200">
+          <i class="text-[#D32243] fa-solid fa-burger"></i>
+          <a href="#meals"> <span class="text-[15px] ml-4 text-[#393D3F] font-semibold">My Meals</span>
+          </a>
+        </div>
+
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
+          <i class="text-[#D32243] fa-solid fa-calendar-days"></i>
+
+          <a href="#fitness"> <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Fitness Goals</span>
+          </a>
+        </div>
+
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200">
+          <i class="text-[#D32243] fa-solid fa-dumbbell"></i>
+
+          <a href="#exercise"> <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Exercise</span>
+          </a>
+        </div>
+
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
+          <i class="text-[#D32243] fa-solid fa-calendar-check"></i>
+          <a href="#appoint"> <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">My Appointments</span>
+          </a>
+        </div>
+
+        <div class="p-2.5  mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
+          <i class="text-[#D32243] fa-solid fa-right-from-bracket"></i>
+          <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Logout</span>
+        </div>
+      </div>
     </div>
+    <div class="">
+      <div class="column-2 relative w-4/5 ml-[300px] ">
 
 
-    <!-- My Fitness-goal  -->
-    <div class="relative h-screen"> 
-      <h1 class="text-green-700 text-center text-[30px] font-bold py-4 mt-3">My Fitness-goal</h1>
-      <h2 class="text-green-700 text-center text-2xl">"Your only limit is you - push past it."</h2>
+        <div class="w-full">
+          <!-- main content -->
+          <div class="h-screen overflow-hidden flex justify-between items-center	">
+            <div class="content">
+              <h1 class="flex items-center text-[#548C73] font-bold justify-center font-bold text-7xl ">Hi User!</h1>
+              <h2 class="flex items-center justify-center text-[30px] text-[#393D3F] ">Take a step to healthy life</h2>
 
-      <!-- To-do list -->
+              <!-- cards -->
+              <section
+                class="card cursor-pointer w-fit px-11 h-1/2  mx-auto grid grid-cols-1 lg:grid-cols-3  justify-items-center justify-center gap-y-20 gap-x-16 mt-16 mb-5">
 
-       <div class="container flex justify-center items-center my-6 p-5 mx-auto">
-        <div class="todo-app  bg-gray-300 p-7 rounded-lg shadow-md ">
-            <h2 class="text-[#002765] text-[20px] font-bold ml-4 flex items-center mb-5">
-               Fitness-goal
+                <!-- card1 -->
+                <div
+                  class="card1 w-70 h-80 shadow-lg hover:shadow-gray-400 rounded-xl bg-contain bg-center duration-500 hover:scale-105 hover:shadow-md">
+
+                  <div class="h-3/4">
+                    <img src="/assets/images/meals2.jpg" class="h-full w-full bg-contain  bg-center " />
+
+                  </div>
+                  <div class="px-20 ml-5 py-3 h-max ">
+                    <p
+                      class=" flex justify-center items-center  mt-2 text-lg font-bold text-[#548C73] truncate text-center capitalize hover:opacity-75">
+                      My Meals
+                      <!-- <img src="Images/iftar.png" class="h-7 mx-2" alt=""> -->
+                    </p>
+                  </div>
+                </div>
+
+                <!-- card2 -->
+                <div
+                  class="card2 w-70 h-80 bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
+                  <div class="h-3/4">
+                    <img src="/assets/images/fitnessgoals1.jpg" class="h-full w-full bg-contain  bg-center " />
+
+                  </div>
+                  <div class="px-2 py-3 ml-5 w-72 ">
+                    <p
+                      class=" flex justify-center items-center  mt-2 text-lg font-bold text-[#548C73] truncate text-center capitalize hover:opacity-75">
+                      Fitness Goals
+                      <!-- <img src="Images/fitness.png" class="h-7 mx-2" alt=""> -->
+                    </p>
+                  </div>
+                </div>
+
+
+                <!-- card3 -->
+                <div
+                  class="card3 w-70 h-80 bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
+                  <div class="h-3/4">
+                    <img src="/assets/images/exercise.jpg" class="h-full w-full bg-contain  bg-center " />
+
+                  </div>
+                  <div class="px-2 ml-5 py-3 w-72 ">
+                    <p
+                      class=" flex justify-center items-center  mt-2 text-lg font-bold text-[#548C73] truncate text-center capitalize hover:opacity-75">
+                      Exercise
+                      <!-- <img src="Images/exrecise.png" class="h-7 mx-2" alt=""> -->
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- Profile page 1 -->
+          <div id="profile" class="profile-page shadow-xl  mb-20 text-[#548C73] w-full h-max  ">
+
+            <h2 class="text-6xl font-bold flex flex-wrap justify-center ">Profile </h2>
+            <div class="flex grid grid-cols-3 flex-wrap justify-between m-5 items-center">
+              <label class="pt-10 text-[#548C73] text-xl">Name
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="name" type="text">
+              </label>
+
+              <label class=" pt-10 text-[#548C73] text-xl"> Height
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="height" type="text">
+              </label>
+
+              <label class=" pt-10 text-[#548C73] text-xl">Weight
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="weight" type="text">
+              </label>
+
+              <label class="pt-10  name text-[#548C73] text-xl">Body Mass Index
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="bmi" type="text">
+              </label>
+
+              <label class="pt-10  name text-[#548C73] text-xl">Gender
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="gender" type="text">
+              </label>
+
+              <label class="pt-10 name text-[#548C73] text-xl">Location
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="location" type="text">
+              </label>
+
+              <label class="pt-10 name text-[#548C73] text-xl">Profession
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="disease" type="text">
+              </label>
+
+              <label class="pt-10 name text-[#548C73] text-xl">Working Hours
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="disease" type="text">
+              </label>
+
+              <label class="pt-10 name text-[#548C73] text-xl">Sleeping Hours
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="disease" type="text">
+              </label>
+
+              <label class="pt-10 name text-[#548C73] text-xl">Food Prefence
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="preference"
+                  type="text">
+              </label>
+              <label class="pt-10 name text-[#548C73] text-xl">Allergies
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="allergy" type="text">
+              </label>
+              <label class="pt-10 name text-[#548C73] text-xl">Blood Group
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="bloodgrp" type="text">
+              </label>
+              <label class="pt-10 name text-[#548C73] text-xl">Thalesemia
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="thalesemia"
+                  type="text">
+              </label>
+              <label class="pt-10 name text-[#548C73] text-xl">Any Other disease
+                <input class="border-2 w-max h-10 outline-none border-[#D32243] rounded-xl" name="disease" type="text">
+              </label>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- My Meals page 2 -->
+
+        <div id="meals" class="page-2 ml-[150px] mt-20 mb-20  w-4/5 h-max">
+          <h1 class="text-[#548C73] text-center text-6xl font-bold py-4 mt-3">My Meals</h1>
+          <h2 class="text-[#548C73] text-center text-2xl">Your diet is a bank account. Good food choices are good
+            investments
+          </h2>
+
+          <!-- To-do list -->
+
+          <div class="container flex justify-center items-center my-6 p-5 mx-auto">
+            <div class="todo-app  bg-gray-300 p-7 rounded-lg shadow-md ">
+              <h2 class="text-[#393D3F] text-[20px] font-bold ml-14 flex items-center mb-5">
+                Add Your Food
+                <i class="fa-solid fa-utensils pl-4"></i>
+
+              </h2>
+              <div class="add bg-[#edeef0] rounded-[20px] pl-5  flex items-center justify-between ">
+                <input type="text" id="input-box" placeholder="Add your task"
+                  class="flex-1 outline-none bg-transparent border-none p-2">
+                <button onclick="addTask()"
+                  class="btn  px-9 py-4 cursor-pointer   bg-[#D32243] text-bold rounded-[20px] text-[16px] text-white max-[404px]:px-7 max-[404px]:py-3">Add</button>
+              </div>
+              <ul id="list-container" class="p-5 mt-2"> </ul>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- My Fitness-goal page-3  -->
+        <div id="fitness" class=" page-3 relative mt-20 mb-20 h-max">
+          <h1 class="text-green-700 text-center text-[30px] font-bold py-4 mt-3">Fitness Goals</h1>
+          <h2 class="text-green-700 text-center text-2xl">"Your only limit is you - push past it."</h2>
+
+          <!-- To-do list -->
+
+          <div class="container flex justify-center items-center my-6 p-5 mx-auto">
+            <div class="todo-app  bg-gray-300 p-7 rounded-lg shadow-md ">
+              <h2 class="text-[#002765] text-[20px] font-bold ml-4 flex items-center mb-5">
+                Fitness-goal
                 <img src="Images/exrecise.png" class="w-7 ml-4" alt="">
-            </h2>
-            <div class="add bg-[#edeef0] rounded-[20px] pl-5  flex items-center justify-between ">
-                <input type="text" id="input-box" placeholder="Add your task" class="flex-1 outline-none bg-transparent border-none p-3">
-                <button onclick="addTask()" class="btn  px-11 py-4 cursor-pointer  bg-orange-600 rounded-[20px] text-[16px] text-white max-[404px]:px-7 max-[404px]:py-3">Add</button>
-            </div>
-             <ul id="list-container" class="p-5 mt-2"> </ul>
-     
-        </div>
-       </div>
-    </div>
+              </h2>
+              <div class="add bg-[#edeef0] rounded-[20px] pl-5  flex items-center justify-between ">
+                <input type="text" id="input-box" placeholder="Add your task"
+                  class="flex-1 outline-none bg-transparent border-none p-3">
+                <button onclick="addTask()"
+                  class="btn  px-11 py-4 cursor-pointer  bg-[#D32243] rounded-[20px] text-[16px] text-white max-[404px]:px-7 max-[404px]:py-3">Add</button>
+              </div>
+              <ul id="list-container" class="p-5 mt-2"> </ul>
 
-    <!-- Exercise -->
-    
-        <div class="relative h-screen"> 
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise page-4 -->
+
+        <div id="exercise" class="page-4 relative  mt-20 mb-20 h-max">
           <h1 class="text-green-800 text-center text-[30px] font-bold py-4 mt-3">Exercise</h1>
           <h2 class="text-green-700 text-center text-2xl">Breathe, stretch, strengthen - repeat.</h2>
-        <!-- cards -->
-        <section  
-          class="card cursor-pointer w-fit px-11  mx-auto grid grid-cols-1 lg:grid-cols-3  justify-items-center justify-center gap-y-20 gap-x-16 mt-16 mb-5">
+          <!-- cards -->
+          <section
+            class="card cursor-pointer w-fit px-11  mx-auto grid grid-cols-1 lg:grid-cols-3  justify-items-center justify-center gap-y-20 gap-x-16 mt-16 mb-5">
 
-          <!-- card1 -->
-          <div
-            class="card1 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
-            <img src="Images/meal2.jpg" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
-            <div class="px-20 ml-5 py-3 w-72 ">
-              <p
-                class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
-                My Meals
-                <img src="Images/iftar.png" class="h-7 mx-2" alt="">
-              </p>
+            <!-- card1 -->
+            <div
+              class="card1 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
+              <img src="Images/meal2.jpg" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
+              <div class="px-20 ml-5 py-3 w-72 ">
+                <p
+                  class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
+                  My Meals
+                  <img src="Images/iftar.png" class="h-7 mx-2" alt="">
+                </p>
+              </div>
             </div>
-          </div>
 
-          <!-- card2 -->
-          <div
-            class="card2 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
-            <img src="Images/Fitness-goal1.png" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
-            <div class="px-2 py-3 ml-5 w-72 ">
-              <p
-                class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
-                My fitness goal
-                <img src="Images/fitness.png" class="h-7 mx-2" alt="">
-              </p>
+            <!-- card2 -->
+            <div
+              class="card2 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
+              <img src="Images/Fitness-goal1.png" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
+              <div class="px-2 py-3 ml-5 w-72 ">
+                <p
+                  class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
+                  My fitness goal
+                  <img src="Images/fitness.png" class="h-7 mx-2" alt="">
+                </p>
+              </div>
             </div>
-          </div>
 
 
-          <!-- card3 -->
-          <div
-            class="card3 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
-            <img src="Images/exercise1.jpg" class="h-[15rem]  w-fix object-cover rounded-t-xl" />
-            <div class="px-2 ml-5 py-3 w-72 ">
-              <p
-                class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
-                Exercise
-                <img src="images/exrecise.png" class="h-7 mx-2" alt="">
-              </p>
+            <!-- card3 -->
+            <div
+              class="card3 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
+              <img src="Images/exercise1.jpg" class="h-[15rem]  w-fix object-cover rounded-t-xl" />
+              <div class="px-2 ml-5 py-3 w-72 ">
+                <p
+                  class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
+                  Exercise
+                  <img src="Images/exrecise.png" class="h-7 mx-2" alt="">
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
+
+        <!-- appointments page -->
+        <div id="appoint" class="appointment h-max">
+
+        </div>
       </div>
     </div>
+  </div>
   <script src="patientDashBoard.js"> </script>
 </body>
 

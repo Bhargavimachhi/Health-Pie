@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Carousel</title>
+    <style>
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        iframe{
+            margin : 0 20% 0 20%;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Exercises</h2>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/brjAjq4zEIE?si=8qU6gXfXwPpq0oqB" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/FdyhENXyIQ4?si=FiNAjWSz-xpIinnL" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/dAqQqmaI9vY?si=kR7nOzfwRNL6uuVp" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/EQMWdUR4mJA?si=w4y3hhSsBuNoZfax" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/XHCLAERIwy8?si=Ey7lpRX1O-RExJcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/g_tea8ZNk5A?si=fl0--9pMU-eAqmMW" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/VecbXgWY0DI?si=2aIyjqF53YWPu6GW" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function moveSlide(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            const offset = -slideIndex * 100;
+            document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+        }
+
+        showSlides();
+    </script>
+</body>
+</html>
