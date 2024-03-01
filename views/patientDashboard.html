@@ -40,7 +40,7 @@
 
       <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400">
         <i class="fa-solid fa-burger"></i>
-        <span class="text-[15px] ml-4 font-bold">My Meals</span>
+        <a href="http://localhost:8000/mymeals/view"><span class="text-[15px] ml-4 font-bold">My Meals</span></a>
       </div>
 
       <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-400 ">
@@ -75,17 +75,20 @@
           class="card cursor-pointer w-fit px-11  mx-auto grid grid-cols-1 lg:grid-cols-3  justify-items-center justify-center gap-y-20 gap-x-16 mt-16 mb-5">
 
           <!-- card1 -->
-          <div
-            class="card1 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
-            <img src="Images/meal2.jpg" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
-            <div class="px-20 ml-5 py-3 w-72 ">
-              <p
-                class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
-                My Meals
-                <img src="Images/iftar.png" class="h-7 mx-2" alt="">
-              </p>
+          <a href="http://localhost:8000/mymeals/view">
+            <div
+              class="card1 w-70 h-[20rem] bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
+              <img src="Images/meal2.jpg" class="h-[15rem]  w-30 object-cover rounded-t-xl" />
+              <div class="px-20 ml-5 py-3 w-72 ">
+                <p
+                  class=" flex justify-center items-center  mt-2 text-lg font-bold text-green-700 truncate text-center capitalize hover:text-green-900">
+                  My Meals
+                  <img src="Images/iftar.png" class="h-7 mx-2" alt="">
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
+          
 
           <!-- card2 -->
           <div
