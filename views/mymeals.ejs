@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutrition Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+        margin-bottom: 20px;
+        display: flex; /* Use flexbox to align items */
+        align-items: center; /* Align items vertically */
+    }
+    label {
+        margin-right: 10px; /* Add some spacing between label and textboxes */
+    }
+    input[type="text"] {
+        flex: 1; /* Allow textboxes to expand and fill remaining space */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Nutrition Form</h2>
+    <form id="nutritionForm" method="post" action="/mymeals">
+        <div class="form-group">
+            <label for="protein">Protein :</label>
+            <input type="text" name="minProtein" placeholder="Min value in gram">
+            <input type="text" name="maxProtein" placeholder="Max value in gram">
+        </div>
+        <div class="form-group">
+            <label for="vitaminA">Vitamin A:</label>
+            <input type="text" name="minVitaminA" placeholder="Min value in microgram">
+            <input type="text" name="maxVitaminA" placeholder="Max value in microgram">
+        </div>
+        <div class="form-group">
+            <label for="vitaminC">Vitamin C:</label>
+            <input type="text" name="minVitaminC" placeholder="Min value in miligram">
+            <input type="text" name="maxVitaminC" placeholder="Max value in miligram">
+        </div>
+        <div class="form-group">
+            <label for="vitaminE">Vitamin E:</label>
+            <input type="text" name="minVitaminE" placeholder="Min value in miligram">
+            <input type="text" name="maxVitaminE" placeholder="Max value in miligram">
+        </div>
+        <div class="form-group">
+            <label for="vitaminB12">Vitamin B12:</label>
+            <input type="text" name="minVitaminB12" placeholder="Min value in microgram">
+            <input type="text" name="maxVitaminB12" placeholder="Max value in microgram">
+        </div>
+        <div class="form-group">
+            <label for="carbon">Carbon:</label>
+            <input type="text" name="minCarbs" placeholder="Min value in gram">
+            <input type="text" name="maxCarbs" placeholder="Max value in gram">
+        </div>
+        <div class="form-group">
+            <label for="fat">Fat:</label>
+            <input type="text" name="minFat" placeholder="Min value in gram">
+            <input type="text" name="maxFat" placeholder="Max value in gram">
+        </div>
+        <div class="form-group">
+            <label for="fiber">Fiber:</label>
+            <input type="text" name="minFiber" placeholder="Min value in gram">
+            <input type="text" name="maxFiber" placeholder="Max value in gram">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>

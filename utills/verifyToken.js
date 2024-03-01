@@ -5,7 +5,7 @@ export const verifyToken=async(req,res,next)=>{
 
 
     const token=req.cookies.accessToken;
-    console.loog(token)
+    console.log(token)
 
     if(!token){
         return res.json({

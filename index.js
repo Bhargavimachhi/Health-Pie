@@ -1,36 +1,35 @@
-const express=require("express");
-const path=require("path");
-const methodOverride=require("method-override");
-const mongoose=require("mongoose");
-const app=express();
+import express from "express";
+import path from "path";
+import methodOverride from "method-override";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 const port=8000;
-const axios = require('axios');
+const app=express();
 
-const options = {
-    method: 'GET',
-    url: 'https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2/by-uri',
-    params: {
-      type: 'public',
-      beta: 'true',
-      'field[0]': 'uri'
-    },
-    headers: {
-      'Accept-Language': 'en',
-      'X-RapidAPI-Key': '62bc98c16fmsh4a02d2911afd72bp18ceb3jsnf683fc36b992',
-      'X-RapidAPI-Host': 'edamam-recipe-search.p.rapidapi.com'
-    }
-  };
+import userRoute from "./routes/user.js";
+import doctorRoute from "./routes/doctor.js";
+import loginRoute from "./routes/login.js";
+import signupRoute from "./routes/signup.js";
+import cookieParser from "cookie-parser";
 
+
+dotenv.config();
 app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"/views"));
+// app.set("views",path.join(__dirname,"/views"));
 
-app.use(express.static(path.join(__dirname,"public")));
+// app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended :true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cookieParser());
+
+app.use("/user",userRoute);
+app.use("/doc",doctorRoute);
+app.use("/signup",signupRoute);
+app.use("/login",loginRoute);
 
 async function main(){
-    mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    mongoose.connect("mongodb://127.0.0.1:27017/healthPie");
 }
 
 main().then(()=>{
@@ -43,33 +42,36 @@ app.listen(port,()=>{
     console.log("Server Started");
 });
 
-app.get("/",(req,res)=>{
-    res.sendFile("index.html",{root :"views"});
+app.get("/public/style.css", function(req, res) {
+    res.sendFile("style.css",{root : "public"});
 });
 
+app.get("/",(req,res)=>{
+    res.sendFile("index.html",{root :  "views"});
+})
+
 app.get("/login",(req,res)=>{
-    console.log("login get");
-    res.sendFile("login.html",{root :"views"});
+    res.sendFile("login.html",{root : "views"});
 });
 
 app.get("/signup",(req,res)=>{
-    console.log("sign up get");
-    res.sendFile("signup.html",{root :"views"});
+    res.sendFile("signup.html",{root : "views"});
 });
 
-app.post("/login",(req,res)=>{
-    console.log("login post");
-    let {email,password}=req.body;
-    console.log(email,password);
-});
+app.get("/mymeals",(req,res)=>{
+    res.render("mymeals.ejs");
+})
 
-app.post("/signup",(req,res)=>{
-    console.log("sign up post");
-    // let {email,password}=req.body;
-    console.log(req.body);
-    res.send(req.body);
-});
+app.post("/mymeals",(req,res)=>{
+    let {minProtein,maxProtein,minVitaminA,maxVitaminA,minVitaminC,maxVitaminC,minVitaminE,maxVitaminE,minVitaminB12,maxVitaminB12,minCarbs,
+        maxCarbs,minFat,maxFat,minFiber,maxFiber}=req.body;
+    let data=[{'minProtein':minProtein},{'maxProtein':maxProtein},{'maxProtein':minVitaminA},{'maxVitaminA':maxVitaminA},{'minVitaminC':minVitaminC},
+        {'maxVitaminC':maxVitaminC},{'minVitaminE':minVitaminE},{'maxVitaminE':maxVitaminE},{'minVitaminB12':minVitaminB12},{'maxVitaminB12':maxVitaminB12},
+        {'minCarbs':minCarbs},{'maxCarbs':maxCarbs},{'minFat':minFat},{'maxFat':maxFat},{'minFiber':minFiber},{'maxFiber':maxFiber}];
 
-app.get("/home",(req,res)=>{
-    res.sendFile("patientDashboard.html",{root :"views"});
-});
+    let q=`https://api.spoonacular.com/recipes/findByNutrients?`;
+    for(let obj of data){
+        console.log(obj);
+    }
+
+})
