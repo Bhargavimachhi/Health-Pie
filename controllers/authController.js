@@ -12,30 +12,42 @@ export const register=async(req,res)=>{
 
       const salt=await bcrypt.genSalt(10);
       const hash=await bcrypt.hash(req.body.password,salt);
-    try {
 
-        const newUser=new User({
-            username:req.body.username,
-            email:req.body.email,
-            role:req.body.role,
-            password:hash,
-            gender:req.body.gender
+      const user=await User.find({email : req.body.email});
+      if(user.length==0){
+        try {
 
+            const newUser=new User({
+                username:req.body.username,
+                email:req.body.email,
+                role:req.body.role,
+                password:hash,
+                gender:req.body.gender,
+                meals : req.body.meals
+    
+            });
+    
+            const data=await newUser.save();
+            res.json({ message: "created new user succesfull", data });
+            
+        } catch (err) {
+            console.error(err);
+        // res.status(500).json({ error: "Internal Server Error" });
+            let code=500;
+            let msg="Internal Server Error";
+            let description ="";
+    
+            res.render("../views/error.ejs",{code,msg,description});
+        }
+      }else{
+        let code=404;
+            let msg="User Already Exists";
+            let description ="the user you are trying to signup already exists";
 
-        });
+            res.render("../views/error.ejs",{code,msg,description});
+      }
 
-        const data=await newUser.save();
-        res.json({ message: "created new user succesfull", data });
-        
-    } catch (err) {
-        console.error(err);
-    // res.status(500).json({ error: "Internal Server Error" });
-        let code=500;
-        let msg="Internal Server Error";
-        let description ="";
-
-        res.render("../views/error.ejs",{code,msg,description});
-    }
+    
 };
 
 //user login

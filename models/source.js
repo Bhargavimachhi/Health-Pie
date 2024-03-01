@@ -28,6 +28,11 @@ let userSchema=new mongoose.Schema({
     },
     location : String,
     dob : Date,
+
+    meals : [{
+        id : String,
+        name : String,
+    }]
 });
 
 // const User=mongoose.model("User",userSchema);

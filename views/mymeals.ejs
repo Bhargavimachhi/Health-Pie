@@ -9,6 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<style>
+  body{
+    background-color: #f4f4f4;
+  }
+</style>
 <body>
   <div class="container">
     <h2>Type something in the input field to search the list for specific items:</h2>  
@@ -27,9 +32,16 @@
             <li class="list-group-item">
               <h2><%= data.title %></h2>
               <img src="<%= data.image %>"><br><br>
-              <form method="get" action="/mymeals/<%=data.id%>/view">
+              <div style="display: flex;">
+                <form method="get" action="/mymeals/<%=data.id%>/view">
                 <button type="submit" class="btn btn-primary">View Details</button>
-              </form>
+                </form> &nbsp; &nbsp;
+                <form action="/mymeals/<%=data.title%>/<%=data.id%>/add" action="get">
+                  <button type="submit" id="add" class="btn btn-primary">Add To Meal <i class="fa fa-plus"></i></button>
+                </form>
+                
+              </div>
+              
             </li><br>
       <% } %>
     </ul>  
@@ -43,6 +55,20 @@
           });
         });
       });
+
+      let btns=document.querySelectorAll("[id='add']");
+
+      for(let btn of btns){
+        btn.addEventListener("click",()=>{
+          let x=btn.innerHTML;
+          if(x === 'Add To Meal<i class="fa fa-plus"></i>'){
+            btn.innerHTML='Meal Added <i class="fa fa-check"></i>';
+          }
+          else{
+            btn.innerHTML='Add To Meal<i class="fa fa-plus"></i>';
+          }
+        })
+      }
       </script>
     
 </body>
