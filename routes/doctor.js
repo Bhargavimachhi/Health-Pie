@@ -1,9 +1,11 @@
 import express from "express";
-import { createDoctor , UpdateDoctor , getAllDoctor , getSingleDoctor , deleteDoctor} from "../controllers/docController.js";
-const app=express();
+import { createDoctor , UpdateDoctor , getAllDoctor , getSingleDoctor , deleteDoctor } from "../controllers/docController.js";
+const app=express.Router();
 
-app.post("/doc/create",createDoctor);
-app.post("/doc/:id/update",UpdateDoctor);
-app.get("/doc/view",getAllDoctor);
-app.get("/doc/:id/view",getSingleDoctor);
-app.get("/doc/:id/remove",deleteDoctor);
+app.post("/create",createDoctor);
+app.post("/:id/update",UpdateDoctor);
+app.get("/view",getAllDoctor);
+app.get("/:id/view",getSingleDoctor);
+app.get("/:id/remove",deleteDoctor);
+
+export default app;

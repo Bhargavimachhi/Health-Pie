@@ -1,5 +1,7 @@
 import { register } from "../controllers/authController.js";
 import express from "express";
-const app=express();
+const app=express.Router();
 
-app.post("/signup",register);
+app.post("/",register);
+
+export default app;

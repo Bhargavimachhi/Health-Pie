@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import methodOverride from "method-override";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 const port=8000;
 const app=express();
 
@@ -9,14 +10,18 @@ import userRoute from "./routes/user.js";
 import doctorRoute from "./routes/doctor.js";
 import loginRoute from "./routes/login.js";
 import signupRoute from "./routes/signup.js";
+import cookieParser from "cookie-parser";
 
+
+dotenv.config();
 app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"/views"));
+// app.set("views",path.join(__dirname,"/views"));
 
-app.use(express.static(path.join(__dirname,"public")));
+// app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended :true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cookieParser());
 
 app.use("/user",userRoute);
 app.use("/doc",doctorRoute);

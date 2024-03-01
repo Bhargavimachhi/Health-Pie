@@ -79,6 +79,7 @@ export const register=async(req,res)=>{
          })
          .json({ message: "successfully login", token, role, data: { ...rest } });
     } catch (err) {
+        console.error(err);
         res.json({ message: "failed to login" });
     }
   }

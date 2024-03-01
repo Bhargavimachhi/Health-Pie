@@ -1,9 +1,11 @@
 import { createUser , deleteUser , getAllUser , getSingleUser , UpdateUser } from "../controllers/userController.js";
 import express from "express";
-const app=express();
+const app=express.Router();
 
-app.post("/user/create",createUser);
-app.post("/user/:id/update",UpdateUser);
-app.get("/user/:id/view",getSingleUser);
-app.get("/user/view",getAllUser);
-app.get("/user/:id/remove",deleteUser);
+app.post("/create",createUser);
+app.post("/:id/update",UpdateUser);
+app.get("/:id/view",getSingleUser);
+app.get("/view",getAllUser);
+app.get("/:id/remove",deleteUser);
+
+export default app;
