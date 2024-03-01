@@ -1,16 +1,3 @@
-
-document.getElementById("hamburger").addEventListener("click", function() {
-    var sidebar = document.getElementById("sidebar");
-    if (sidebar.style.display === "block") {
-      sidebar.style.display = "none";
-      document.querySelector('.content').style.marginLeft = "0";
-    } else {
-      sidebar.style.display = "block";
-      document.querySelector('.content').style.marginLeft = "250px";
-    }
-  });
-
-
   // my Meal Todo list
   const inputBox = document.getElementById("input-box");
 const listContiner =document.getElementById("list-container")
