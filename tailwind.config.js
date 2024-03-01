@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     './views/index.html',
-    './views/**/*.{html,js}',
+    './views/*.{html,js}',
   
   ],
   theme: {
