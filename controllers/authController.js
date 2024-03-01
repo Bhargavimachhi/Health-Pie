@@ -53,7 +53,7 @@ export const register=async(req,res)=>{
         const checkCorrectPass=await bcrypt.compare(
 
             req.body.password,
-      user.password
+         user.password
         )
 
         //if password not correct
