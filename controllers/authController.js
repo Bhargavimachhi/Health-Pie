@@ -50,13 +50,13 @@ export const register=async(req,res)=>{
 
         if(!user){
 
-        res.json({ message: "user is not found" });
-            // let code=404;
-            // let msg="User Not Found";
-            // let description ="the user you are trying to login doesn't exist";
+      //  res.json({ message: "user is not found" });
+            let code=404;
+            let msg="User Not Found";
+            let description ="the user you are trying to login doesn't exist";
 
-           // res.render("../views/error.ejs",{code,msg,description});
-            //return;
+            res.render("../views/error.ejs",{code,msg,description});
+            return;
         }
 
         //if user exist then compare password or check password
