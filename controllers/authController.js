@@ -62,7 +62,7 @@ export const register=async(req,res)=>{
 
         if(!user){
 
-            // res.json({ message: "user is not found" });
+      //  res.json({ message: "user is not found" });
             let code=404;
             let msg="User Not Found";
             let description ="the user you are trying to login doesn't exist";
