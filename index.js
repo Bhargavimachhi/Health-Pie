@@ -46,6 +46,8 @@ app.get("/public/style.css", function(req, res) {
     res.sendFile("style.css",{root : "public"});
 });
 
+app.get("/patie")
+
 app.get("/",(req,res)=>{
     res.sendFile("index.html",{root :  "views"});
 })
@@ -59,19 +61,60 @@ app.get("/signup",(req,res)=>{
 });
 
 app.get("/mymeals",(req,res)=>{
-    res.render("mymeals.ejs");
+    res.sendFile("mymeals.html",{root : "views"});
 })
 
-app.post("/mymeals",(req,res)=>{
-    let {minProtein,maxProtein,minVitaminA,maxVitaminA,minVitaminC,maxVitaminC,minVitaminE,maxVitaminE,minVitaminB12,maxVitaminB12,minCarbs,
-        maxCarbs,minFat,maxFat,minFiber,maxFiber}=req.body;
-    let data=[{'minProtein':minProtein},{'maxProtein':maxProtein},{'maxProtein':minVitaminA},{'maxVitaminA':maxVitaminA},{'minVitaminC':minVitaminC},
-        {'maxVitaminC':maxVitaminC},{'minVitaminE':minVitaminE},{'maxVitaminE':maxVitaminE},{'minVitaminB12':minVitaminB12},{'maxVitaminB12':maxVitaminB12},
-        {'minCarbs':minCarbs},{'maxCarbs':maxCarbs},{'minFat':minFat},{'maxFat':maxFat},{'minFiber':minFiber},{'maxFiber':maxFiber}];
-
+app.post("/mymeals/view",(req,res)=>{
     let q=`https://api.spoonacular.com/recipes/findByNutrients?`;
-    for(let obj of data){
-        console.log(obj);
+    for (const [key, value] of Object.entries(req.body)) {
+        if(value=== '' || value===' ' || value==null || value==undefined){
+            continue;
+        }
+        q+=`${key}=${value}&`;
     }
+    q+=`apiKey=70e5bc4a77d24acd97246d0b2745be70`;
+    fetch(`${q}`)
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(userData => {
+        res.render("mymeals.ejs",{userData});
+    })
+    .catch(error => {
+        let code=201;
+        let msg="No Food Available";
+        let description="";
 
+        res.render("error.ejs",{code,msg,description});
+    });
+});
+
+app.get("/mymeals/:id/view",(req,res)=>{
+    let {id}=req.params;
+    let q=`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=70e5bc4a77d24acd97246d0b2745be70`;
+    // console.log(q);
+    fetch(`${q}`)
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        let bad=data.bad;
+        let good=data.good;
+        // let image=data
+        console.log(good,bad);
+        res.render("viewMeal.ejs",{bad , good});
+    })
+    .catch(error => {
+        let code=201;
+        let msg="No Food Available";
+        let description="";
+
+        res.render("error.ejs",{code,msg,description});
+    });
 })
