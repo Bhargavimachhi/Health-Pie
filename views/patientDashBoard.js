@@ -1,4 +1,3 @@
-
 document.getElementById("hamburger").addEventListener("click", function() {
     var sidebar = document.getElementById("sidebar");
     if (sidebar.style.display === "block") {
@@ -9,7 +8,6 @@ document.getElementById("hamburger").addEventListener("click", function() {
       document.querySelector('.content').style.marginLeft = "250px";
     }
   });
-
 
   // my Meal Todo list
   const inputBox = document.getElementById("input-box");

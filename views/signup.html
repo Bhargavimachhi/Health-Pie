@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
+    <link rel="stylesheet" href="/src/input.css">
     <link rel="stylesheet" href="/public/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -55,15 +56,28 @@
             <div class="input-label flex flex-col">
                 <label class="text-[#548C73] text-xl" for="role">Choose Your Role</label>  
                 
-                <select onchange="Upload()" required class="text-xl border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full"   name="role" id="role">
+                <select onchange="Upload()" required class="text-xl  text-[#393D3F] border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full"   name="role" id="role">
                     <option value="Patient">Patient</option>
                     <option value="Doctor">Doctor</option>
                 </select>
            </div>
 
-            <div id="docUpload" class="input-label flex-col hidden ">
-                <label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label><input class="text-black text-xl bg-transparent" name="identity" type="file">
-            </div>
+            <div id="docUpload" class="input-label flex flex-col hidden ">
+               <div>
+                <label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label>
+            <input required class="text-black text-xl bg-transparent" name="identity" type="file">
+               </div>
+
+                <label class="text-[#548C73] text-xl" for="password">Experience</label>
+                <input required class="w-[30vw] h-10 outine-none border-2 border-[#D32243]  rounded-xl max-sm:w-full" name="expereince" type="text">
+                
+                <label class="text-[#548C73] text-xl" for="password">Language</label>
+                <input required class="w-[30vw] h-10 outine-none border-2 border-[#D32243]  rounded-xl max-sm:w-full" name="language" type="text">
+                
+                <label class="text-[#548C73] text-xl" for="password">Speciality</label>
+                <input required class="w-[30vw] h-10 outine-none border-2 border-[#D32243]  rounded-xl max-sm:w-full" name="speciality" type="text">
+                
+                  </div>
             
             <button type="submit"
                 class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] focus:outline-none focus:shadow-outline hover:scale-105 transition-2s ">
@@ -81,10 +95,36 @@
       
           if (roleSelect.value === 'Doctor') {
             documentUpload.classList.remove('hidden');
-            documentUpload.innerHTML=`<label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label><input required class="text-black text-xl bg-transparent" name="identity" type="file">`;
+            documentUpload.innerHTML=
+
+            `<label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label>
+            <input required class="text-black text-xl bg-transparent" name="identity" type="file">
+
+            <label class="text-[#548C73] text-xl" for="password">Experience</label>
+            <input required class="w-[30vw] h-10 outline-none border-2 rounded-xl border-[#D32243] text-black text-xl" name="expereince" type="text">
+            
+            <label class="text-[#548C73] text-xl" for="password">Language</label>
+            <input required class="w-[30vw] h-10 outline-none border-2 rounded-xl border-[#D32243] text-black text-xl" name="language" type="text">
+            
+            <label class="text-[#548C73] text-xl" for="password">Speciality</label>
+            <input required class="w-[30vw] h-10 outline-none border-2 rounded-xl border-[#D32243] text-black text-xl" name="typeof" type="text">
+            
+         
+            `;
           } else {
             documentUpload.classList.add('hidden');
-            documentUpload.innerHTML=`<label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label><input class="text-black text-xl bg-transparent" name="identity" type="file">`;
+            documentUpload.innerHTML=`
+            <label class=" text-xl text-[#548C73]" for="document">Upload Your Self-Attested Certificate</label>
+            <input class="text-black text-xl bg-transparent" name="identity" type="file">
+            
+            <label class="text-[#548C73] text-xl" for="password">Experience</label>
+            <input class="w-[30vw] h-10 outline-none border-2 border-[#D32243]  rounded-xl text-black text-xl" name="expereince" type="text">
+
+            <label class="text-[#548C73] text-xl" for="password">Language</label>
+            <input class="w-[30vw] h-10 outline-none border-2 border-[#D32243]  rounded-xl text-black text-xl" name="language" type="text">
+
+            <label class="text-[#548C73] text-xl" for="password">Speciality</label>
+            <input class="w-[30vw] h-10 outline-none border-2 border-[#D32243]  rounded-xl text-black text-xl" name="speciality" type="text">`;
           }
         }
     </script>

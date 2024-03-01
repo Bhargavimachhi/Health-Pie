@@ -46,8 +46,6 @@ export const register=async(req,res)=>{
 
             res.render("../views/error.ejs",{code,msg,description});
       }
-
-    
 };
 
 //user login
@@ -61,8 +59,6 @@ export const register=async(req,res)=>{
         //if user does not exist
 
         if(!user){
-
-      //  res.json({ message: "user is not found" });
             let code=404;
             let msg="User Not Found";
             let description ="the user you are trying to login doesn't exist";
@@ -78,6 +74,7 @@ export const register=async(req,res)=>{
             req.body.password,
             user.password
         )
+
         //if password not correct
 
         if(!checkCorrectPass){
