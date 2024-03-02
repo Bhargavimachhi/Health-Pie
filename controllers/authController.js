@@ -100,7 +100,7 @@ export const register=async(req,res)=>{
         let msg="Internal Server Error";
         let description ="";
 
-        res.render("../views/error.ejs",{code,msg,description});
+        res.render("../views/error.ejs",{code,msg,description}); 
     }
   }
 
