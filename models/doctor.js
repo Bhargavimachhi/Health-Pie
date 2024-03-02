@@ -38,7 +38,12 @@ const doctorSchema= new mongoose.Schema({
       language :{
         type : String,
         required : true
-      }
+      },
+      appoinments :[{
+        name : String,
+        contact : String,
+        msg :String
+      }]
     },
     { timestamps: true }
 

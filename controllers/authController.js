@@ -38,6 +38,7 @@ export const register=async(req,res)=>{
                 speciality:req.body.speciality,
                 language : req.body.language,
                 contact : req.body.path,
+                appoinments : req.body.appoinments
             });
         }
       if(user.length==0){

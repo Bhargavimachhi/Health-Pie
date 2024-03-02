@@ -26,14 +26,6 @@
         <li class="flex  ">   
         <i class="fa-solid fa-user text-[#D32243]" ></i>
             <a href="#" class="pl-3">Dashboard </a></li>
-        <li class=" flex">
-            <i class="fa-solid fa-calendar-check text-[#D32243]"></i>   
-            <a href="./appointments.html" class="pl-3">Appointment </a></li>
-        </li>
-        <li class="flex  ">
-            <i class="fa-solid fa-folder-open text-[#D32243]"></i>  
-            <a href="./document.html" class="pl-3">Documents</a></li>
-        </li>
         <li class=" flex  ">
         <i class="fa-solid fa-right-from-bracket"></i>
             <a href="index.html" class="pl-3">Logout</a> 
@@ -47,20 +39,19 @@
 
         <div class="name container  space-y-6 ">
             <div class="content relative">
-                <h1 class="flex items-center justify-center font-bold text-[60px] ">Hi Doctor!</h1>
+                <h1 class="flex items-center justify-center font-bold text-[60px] ">Your Appoinments</h1>
         </div>
-            
-            <div class="container w-full h-full shadow-md " id="chart">
-                
+            <div>
+                <ul class="list-group" id="myList" style="text-decoration: none;"></ul>
+                <% console.log(data); for(let curr of data.appoinments){  %>
+                    <li class="list-group-item">
+                        <h2>Name : <%= curr.name %></h2>
+                        <h3>Contact : <%= curr.contact %></h3>
+                        <h3>Message : <%= curr.msg %></h3>
+                    </li><br>
+                <% } %> 
+                </ul>
             </div>
-            <div class="cards relative top-[19rem] flex justify-center h-auto">
-                
-                
-               <!--here we will show detail some patients data-->
-             </div>
-        
-              
-              
         </div>
    
     </div>
@@ -87,77 +78,5 @@
   
 </div>
 </div>
-<script>
-// chart code is shown here
-
-
-anychart.onDocumentReady(function() {
-    var data = [
-  ["2003", 1, 0, 0],
-  ["2004", 4, 0, 0],
-  ["2005", 6, 0, 0],
-  ["2006", 9, 1, 0],
-  ["2007", 12, 2, 0],
-  ["2008", 13, 5, 1],
-  ["2009", 15, 6, 1],
-  ["2010", 16, 9, 1],
-  ["2011", 16, 10, 4],
-  ["2012", 17, 11, 5],
-  ["2013", 17, 13, 6],
-  ["2014", 17, 14, 7],
-  ["2015", 17, 14, 10],
-  ["2016", 17, 14, 12],
-  ["2017", 19, 16, 12],
-  ["2018", 20, 17, 14],
-  ["2019", 20, 19, 16],
-  ["2020", 20, 20, 17],
-  ["2021", 20, 20, 20],
-  ["2022", 20, 22, 20]
-];
-    // create a data set
-var dataSet = anychart.data.set(data);
-
-// map the data for all series
-var firstSeriesData = dataSet.mapAs({x: 0, value: 1});
-var thirdSeriesData = dataSet.mapAs({x: 0, value: 2});
-
-// create a line chart
-var chart = anychart.line();
-
-// create the series and name them
-var firstSeries = chart.line(firstSeriesData);
-firstSeries.name("Patients");
-
-var thirdSeries = chart.line(thirdSeriesData);
-thirdSeries.name("Consultations");
-chart.legend().enabled(true);
-
-firstSeries.normal().stroke("#43a7dc", 2.5);
-
-thirdSeries.normal().stroke(" #7b60a2", 2.5);
-  
-// add a title
-chart.title("Activity");
-firstSeries.hovered().markers().type("circle").size(4);
-
-thirdSeries.hovered().markers().type("circle").size(4);
-
-chart.crosshair().enabled(true).yStroke(null).yLabel(false);
-chart.tooltip().positionMode("point");
-chart.tooltip().position("right").anchor("left-center").offsetX(5).offsetY(5);
-// specify where to display the chart
-chart.container("chart");
-chart
-  .title()
-  .enabled(true)
-  .useHtml(true)
-  .text(
-    '<span style="color: #006331; font-size:20px;">Activity</span>' 
-  );
-// draw the resulting chart
-chart.draw();
-  });
-
-</script>
 </body>
 </html>

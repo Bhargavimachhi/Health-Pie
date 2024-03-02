@@ -169,7 +169,8 @@ app.get("/task",(req,res)=>{
 
 app.get("/appointments",async(req,res)=>{
     let docData=await doctor.find({});
-    res.render("viewAppoinment.ejs",{docData});
+    let doc=[];
+    res.render("viewAppoinment.ejs",{doc ,docData});
 });
 
 app.get("/appointments/:email",async(req,res)=>{
@@ -181,3 +182,11 @@ app.get("/doctor/:email",async(req,res)=>{
     let data=await doctor.find({email : req.params.email});
     res.render("doctorDash.ejs");
 });
+
+app.post("/appointments/:email/check",async (req,res)=>{
+    let doc=await doctor.find({email : req.params.email});
+    let docData=await doctor.find({});
+
+    doc[0].appoinments.push({"name" : req.body.name , "msg" : req.body.msg , "contact":req.body.contact});
+    res.render("viewAppoinment.ejs",{doc : doc[0].appoinments, docData});
+})

@@ -24,19 +24,18 @@
                 
                 <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        
-                        <form class="space-y-4 md:space-y-6" method="get" action="/appointments">
+                        <form class="space-y-4 md:space-y-6" method="post" action="/appointments/<%= data[0].email %>/check">
                             <div>
                                 <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
                                 <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xyz" required="">
                             </div>
                             <div>
                                 <label for="phone no" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone No.</label>
-                                <input type="text" name="phone" id="phone" placeholder="XXXXXXXXXX" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                <input type="text" name="contact" id="phone" placeholder="XXXXXXXXXX" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                             </div>
                             <div>
                                 <label for="msg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
-                                <input type="text" name="phone" id="phone"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                <input type="text" name="msg" id="phone"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                             </div>
                             
                                 
