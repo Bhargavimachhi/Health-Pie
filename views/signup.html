@@ -29,7 +29,7 @@
 <body>
     <div id="signup" class="sign-up-form min-h-screen justify-center flex items-center">
         
-        <form method="post" action="/signup">
+        <form method="post" action="/signup/create">
 
     <div class="form-cont flex items-center justify-center flex-col gap-6">
         <h1 class="text-3xl text-[#393D3F] font-semibold max-sm:text-6xl">Sign Up Form</h1>
@@ -57,7 +57,7 @@
                 <label class="text-[#548C73] text-xl" for="role">Choose Your Role</label>  
                 
                 <select onchange="Upload()" required class="text-xl  text-[#393D3F] border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full"   name="role" id="role">
-                    <option value="Patient">Patient</option>
+                    <option value="User">User</option>
                     <option value="Doctor">Doctor</option>
                 </select>
            </div>

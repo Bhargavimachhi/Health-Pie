@@ -26,42 +26,35 @@
         class="sidebar  w-full shadow-xl bg-zinc-100 border-r-1 border-gray-200  top-0 bottom-0 left-0 h-screen lg:left-0 p-2  flex flex-col justify-center overflow-y-auto text-center">
 
 
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
-          <i class=" text-[#D32243] fa-solid fa-user"></i>
-          <a href="#profile"> <span class="text-[15px] ml-4 text-[#393D3F] font-semibold">Profile</span>
-          </a>
-        </div>
-
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200">
+        <a href="http://localhost:8000/mymeals/view"> <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200">
           <i class="text-[#D32243] fa-solid fa-burger"></i>
-          <a href="#meals"> <span class="text-[15px] ml-4 text-[#393D3F] font-semibold">My Meals</span>
-          </a>
-        </div>
+          <span class="text-[15px] ml-4 text-[#393D3F] font-semibold">My Meals</span>
+          
+        </div></a>
 
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
+        <a href="http://localhost:8000/task"><div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
           <i class="text-[#D32243] fa-solid fa-calendar-days"></i>
 
-          <a href="#fitness"> <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Fitness Goals</span>
-          </a>
-        </div>
+           <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Fitness Goals</span>
+          
+        </div></a>
 
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200">
+        <a href="http://localhost:8000/exercise"> <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200">
           <i class="text-[#D32243] fa-solid fa-dumbbell"></i>
 
-          <a href="#exercise"> <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Exercise</span>
-          </a>
-        </div>
+          <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Exercise</span>
+        </div></a>
 
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
+        <a href="http://localhost:8000/appointments"><div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
           <i class="text-[#D32243] fa-solid fa-calendar-check"></i>
-          <a href="#appoint"> <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">My Appointments</span>
-          </a>
-        </div>
+           <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">My Appointments</span>
+          
+        </div></a>
 
-        <div class="p-2.5  mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
+        <a href="index.html"><div class="p-2.5  mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-200 ">
           <i class="text-[#D32243] fa-solid fa-right-from-bracket"></i>
           <span class="text-[15px] ml-4  text-[#393D3F] font-semibold">Logout</span>
-        </div>
+        </div></a>
       </div>
     </div>
     <div class="">
@@ -84,7 +77,7 @@
                   class="card1 w-70 h-80 shadow-lg hover:shadow-gray-400 rounded-xl bg-contain bg-center duration-500 hover:scale-105 hover:shadow-md">
 
                   <div class="h-3/4">
-                    <img src="/assets/images/meals2.jpg" class="h-full w-full bg-contain  bg-center " />
+                    <img src="/images/meals2.jpg" class="h-full w-full bg-contain  bg-center " />
 
                   </div>
                   <div class="px-20 ml-5 py-3 h-max ">
@@ -100,7 +93,7 @@
                 <div
                   class="card2 w-70 h-80 bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
                   <div class="h-3/4">
-                    <img src="/assets/images/fitnessgoals1.jpg" class="h-full w-full bg-contain  bg-center " />
+                    <img src="/images/fitnessgoals1.jpg" class="h-full w-full bg-contain  bg-center " />
 
                   </div>
                   <div class="px-2 py-3 ml-5 w-72 ">
@@ -117,7 +110,7 @@
                 <div
                   class="card3 w-70 h-80 bg-white shadow-lg hover:shadow-gray-400 rounded-xl duration-500 hover:scale-105 hover:shadow-md">
                   <div class="h-3/4">
-                    <img src="/assets/images/exercise.jpg" class="h-full w-full bg-contain  bg-center " />
+                    <img src="/images/exercise.jpg" class="h-full w-full bg-contain  bg-center " />
 
                   </div>
                   <div class="px-2 ml-5 py-3 w-72 ">
@@ -133,7 +126,7 @@
           </div>
 
           <!-- Profile page 1 -->
-          <div id="profile" class="profile-page shadow-xl  mb-20 text-[#548C73] w-full h-max  ">
+          <!-- <div id="profile" class="profile-page shadow-xl  mb-20 text-[#548C73] w-full h-max  ">
 
             <h2 class="text-6xl font-bold flex flex-wrap justify-center ">Profile </h2>
             <div class="flex grid grid-cols-3 flex-wrap justify-between m-5 items-center">
@@ -193,7 +186,7 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
 
 
         <!-- My Meals page 2 -->

@@ -11,26 +11,17 @@ const doctorSchema= new mongoose.Schema({
         required : true,
       },
     
-      name: {
+      username: {
         type: String,
         required: true,
       },
       
-      phone:{
-          type:Number,
-          required:true
+      contact:{
+          type:String,
       },
       document:{
         data: Buffer, 
-        contentType: String
-      },
-      clinic:{
-        type:String,
-        required:true
-      },
-      designation:{
-        type:String,
-        required:true
+        contentType: String,
       },
       experience:{
         type:String,
@@ -44,6 +35,10 @@ const doctorSchema= new mongoose.Schema({
         type : String,
         required : true
       },
+      language :{
+        type : String,
+        required : true
+      }
     },
     { timestamps: true }
 

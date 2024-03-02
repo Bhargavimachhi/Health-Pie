@@ -11,13 +11,14 @@ import doctorRoute from "./routes/doctor.js";
 import loginRoute from "./routes/login.js";
 import signupRoute from "./routes/signup.js";
 import cookieParser from "cookie-parser";
+import doctor from "./models/doctor.js";
 
 
 dotenv.config();
 app.set("view engine","ejs");
 // app.set("views",path.join(__dirname,"/views"));
 
-// app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static("views"));
 app.use(express.urlencoded({extended :true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -158,7 +159,25 @@ app.get("/mymeals/:id/view",(req,res)=>{
     });
 });
 
-app.get("/mymeals/:name/:id/add",(req,res)=>{
-    let {name,id}=req.params;
-    let data={"name" : name, "id":id};
-})
+app.get("/exercise",(req,res)=>{
+    res.sendFile("exercise.html",{root : "views"});
+});
+
+app.get("/task",(req,res)=>{
+    res.sendFile("cal.html",{root : "views"});
+});
+
+app.get("/appointments",async(req,res)=>{
+    let docData=await doctor.find({});
+    res.render("viewAppoinment.ejs",{docData});
+});
+
+app.get("/appointments/:email",async(req,res)=>{
+    let data=await doctor.find({email : req.params.email});
+    res.render("appointments.ejs",{data});
+});
+
+app.get("/doctor/:email",async(req,res)=>{
+    let data=await doctor.find({email : req.params.email});
+    res.render("doctorDash.ejs");
+});

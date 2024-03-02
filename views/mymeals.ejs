@@ -36,9 +36,9 @@
                 <form method="get" action="/mymeals/<%=data.id%>/view">
                 <button type="submit" class="btn btn-primary">View Details</button>
                 </form> &nbsp; &nbsp;
-                <form action="/mymeals/<%=data.title%>/<%=data.id%>/add" action="get">
+                <!-- <form action="/mymeals/<%=data.title%>/<%=data.id%>/add" action="get"> -->
                   <button type="submit" id="add" class="btn btn-primary">Add To Meal <i class="fa fa-plus"></i></button>
-                </form>
+                <!-- </form> -->
                 
               </div>
               
@@ -61,11 +61,11 @@
       for(let btn of btns){
         btn.addEventListener("click",()=>{
           let x=btn.innerHTML;
-          if(x === 'Add To Meal<i class="fa fa-plus"></i>'){
+          if(x === 'Add To Meal <i class="fa fa-plus"></i>'){
             btn.innerHTML='Meal Added <i class="fa fa-check"></i>';
           }
           else{
-            btn.innerHTML='Add To Meal<i class="fa fa-plus"></i>';
+            btn.innerHTML='Add To Meal <i class="fa fa-plus"></i>';
           }
         })
       }
