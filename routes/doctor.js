@@ -9,3 +9,4 @@ app.get("/:id/view",getSingleDoctor);
 app.get("/:id/remove",deleteDoctor);
 
 export default app;
+
