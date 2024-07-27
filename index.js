@@ -3,6 +3,10 @@ import path from "path";
 import methodOverride from "method-override";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import session from 'express-session';
+import RedisStore from "connect-redis";
+import { createClient } from 'redis';
+
 const port = 8000;
 const app = express();
 
@@ -30,14 +34,61 @@ app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
 
 async function main() {
-    mongoose.connect("mongodb://127.0.0.1:27017/healthPie");
+    mongoose.connect(process.env.MONGO_URL);
 }
 
 main().then(() => {
-    console.log("MongoDB connection successfull");
+    console.log("MongoDB connection successful");
 }).catch((err) => {
-    console.log("Failure in connection of database ");
+    console.log("Failure in connection of database ", err);
 });
+
+
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        expires: Date.now() + 1000 * 3600 * 24,
+        maxAge: 1000 * 3600 * 24 * 3
+
+    }
+}))
+
+// Initialize client.
+const redisClient = createClient({
+    password: process.env.REDIS_PASS,
+    socket: {
+        host: 'redis-11634.c330.asia-south1-1.gce.redns.redis-cloud.com',
+        port: 11634
+    }
+});
+
+redisClient.connect()
+    .then(() => {
+        redisClient.ping(); // No arguments needed
+    })
+    .catch(console.error);
+
+
+
+// Initialize store.
+let redisStore = new RedisStore({
+    client: redisClient,
+    prefix: "session:",
+})
+
+// Initialize session storage.
+app.use(
+    session({
+        store: redisStore,
+        resave: false, // required: force lightweight session keep alive (touch)
+        saveUninitialized: true, // recommended: only save session when data exists
+        secret: process.env.SECRET,
+    }),
+)
+
+
 
 app.listen(port, () => {
     console.log("Server Started");
@@ -64,7 +115,7 @@ app.get("/mymeals", (req, res) => {
 })
 
 app.get("/mymeals/view", (req, res) => {
-    let q = `https://api.spoonacular.com/recipes/findByNutrients?minVitaminB12=1&apiKey=093f59c223dc4b0b8a63411d7de1dafd`;
+    let q = `https://api.spoonacular.com/recipes/findByNutrients?minVitaminB12=1&apiKey=${process.env.SPOONACULAR_API_KEY}`;
     fetch(`${q}`)
         .then(response => {
             if (!response.ok) {
@@ -96,7 +147,7 @@ app.post("/mymeals/view", (req, res) => {
         }
         q += `${key}=${value}&`;
     }
-    q += `apiKey=093f59c223dc4b0b8a63411d7de1dafd`;
+    q += `apiKey=${process.env.SPOONACULAR_API_KEY}`;
     fetch(`${q}`)
         .then(response => {
             if (!response.ok) {
@@ -132,7 +183,7 @@ app.post("/mymeals/view", (req, res) => {
 
 app.get("/mymeals/:id/view", (req, res) => {
     let { id } = req.params;
-    let q = `https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=093f59c223dc4b0b8a63411d7de1dafd`;
+    let q = `https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${process.env.SPOONACULAR_API_KEY}`;
     // console.log(q);
     fetch(`${q}`)
         .then(response => {
