@@ -1,0 +1,14 @@
+.diff-option{
+    display: flex;
+    /* background-color: red; */
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+
+.diff-option a{
+    color: rgb(211,34,67);
+}
+
+.diff-option a:hover{
+    color: rgb(138, 3, 27);
+}

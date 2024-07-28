@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link rel="stylesheet" href="/public/other.css">
     <link rel="stylesheet" href="/public/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- <script>
@@ -33,7 +34,7 @@
 
 
 
-            <form method="post" action="/login" >
+            <form method="post" action="/login">
                 <div class="input-label flex flex-col ">
                     <label class=" text-xl text-[#548C73]  max-sm:text-2xl" for="email">Email</label>
                     <input required class="border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl sm:w-full "
@@ -47,21 +48,28 @@
                 </div>
 
                 <div class="input-label flex flex-col">
-                    <label class="text-[#548C73] text-xl" for="role">Choose Your Role</label>  
-                    
-                    <select onchange="Upload()" required class="text-xl  text-[#393D3F] border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full"   name="role" id="role">
+                    <label class="text-[#548C73] text-xl" for="role">Choose Your Role</label>
+
+                    <select onchange="Upload()" required
+                        class="text-xl  text-[#393D3F] border-2 w-[30vw] h-10 outline-none border-[#D32243] rounded-xl max-sm:w-full"
+                        name="role" id="role">
                         <option value="User">User</option>
                         <option value="Doctor">Doctor</option>
                     </select>
-               </div>
+                </div>
+                <br><br>
+                <div class="diff-option">
+                    <p>new account ? <a href="/signup">SIGNUP</a></p>
+                </div>
 
         </div>
-       
-            <button
-                class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] hover:scale-105 transition-2s ">LOGIN</button>
-       
+
+        <button
+            class="w-max border-2 mt-10 px-3 py-1 rounded-2xl text-xl border-[#D32243] font-semibold text-[#D32243] hover:scale-105 transition-2s ">LOGIN</button>
+
         </form>
 
     </div>
 </body>
+
 </html>

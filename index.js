@@ -28,10 +28,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(cookieParser());
 
-app.use("/user", userRoute);
-app.use("/doc", doctorRoute);
-app.use("/signup", signupRoute);
-app.use("/login", loginRoute);
+
 
 async function main() {
     mongoose.connect(process.env.MONGO_URL);
@@ -89,13 +86,17 @@ app.use(
 )
 
 
-
-app.listen(port, () => {
-    console.log("Server Started");
-});
+app.use("/user", userRoute);
+app.use("/doc", doctorRoute);
+app.use("/signup", signupRoute);
+app.use("/login", loginRoute);
 
 app.get("/public/style.css", function (req, res) {
     res.sendFile("style.css", { root: "public" });
+});
+
+app.get("/public/other.css", function (req, res) {
+    res.sendFile("other.css", { root: "public" });
 });
 
 app.get("/", (req, res) => {
@@ -145,7 +146,7 @@ app.post("/mymeals/view", (req, res) => {
         if (value === '' || value === ' ' || value == null || value == undefined) {
             continue;
         }
-        q += `${key}=${value}&`;
+        q += `${key}=${value}`;
     }
     q += `apiKey=${process.env.SPOONACULAR_API_KEY}`;
     fetch(`${q}`)
@@ -241,3 +242,7 @@ app.post("/appointments/:email/check", async (req, res) => {
     doc[0].appoinments.push({ "name": req.body.name, "msg": req.body.msg, "contact": req.body.contact });
     res.render("viewAppoinment.ejs", { doc: doc[0].appoinments, docData });
 })
+
+app.listen(port, () => {
+    console.log("Server Started");
+});
